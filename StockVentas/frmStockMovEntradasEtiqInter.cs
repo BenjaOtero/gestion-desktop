@@ -19,7 +19,8 @@ namespace StockVentas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmStockMovInforme);
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
