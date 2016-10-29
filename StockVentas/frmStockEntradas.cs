@@ -732,25 +732,5 @@ namespace StockVentas
             return tblEtiquetas;
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            if (ImprimirEtiquetas())
-            {
-                if (ValidarGrid())
-                {
-                    if (rdCodigoBarra.Checked)
-                    {
-                        EtiquetasRpt informeEtiquetas = new EtiquetasRpt(tblEtiquetas, imprimePrecios);
-                        informeEtiquetas.Show();
-                    }
-                    else
-                    {
-                        EtiquetasA4Rpt informeEtiquetas = new EtiquetasA4Rpt(tblEtiquetas);
-                        informeEtiquetas.Show();
-                    }
-                }
-            }
-        }
-
     }
 }

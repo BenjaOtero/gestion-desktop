@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace StockVentas
 {
-    public partial class frmStockMovInforme : Form
+    public partial class frmStockMovInforme : Form, IfrmStockMovInforme
     {
         public DataSet dsStockMov;
         DataTable tblStockMov;
@@ -176,86 +176,169 @@ namespace StockVentas
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             frmStockMovEntradasEtiqInter frm = new frmStockMovEntradasEtiqInter();
-            frm.ShowDialog();
+            frm.ShowDialog(this);
+            SendToBack();
         }
 
         public void ImprimirEtiquetas(string impresora)
         {
-            DataTable tblArticulos = BL.GetDataBLL.Articulos();
-            bool imprimePrecios;
-            if (MessageBox.Show("¿Imprime el precio en las etiquetas?", "Trend", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                imprimePrecios = true;
-            else
-                imprimePrecios = false;
             DataView viewStockMovDetalle = new DataView(tblStockMovDetalle);
             string pk = dgvStockMov.CurrentRow.Cells["IdMovMSTK"].Value.ToString();
             viewStockMovDetalle.RowFilter = "IdMovMSTKD = '" + pk + "'";
             viewStockMovDetalle.Sort = "ordenar";
-
-            Cursor.Current = Cursors.WaitCursor;
-            DataTable tblEtiquetas = new DataTable();
-            tblEtiquetas.Columns.Add("IdArticuloMSTKD", typeof(string));
-            tblEtiquetas.Columns.Add("DescripcionART", typeof(string));
-            tblEtiquetas.Columns.Add("Precio", typeof(string));
-            tblEtiquetas.Columns.Add("IdArticuloMSTKD1", typeof(string));
-            tblEtiquetas.Columns.Add("DescripcionART1", typeof(string));
-            tblEtiquetas.Columns.Add("Precio1", typeof(string));
-            cfilas = tblEtiquetas.Rows;
-            int i = 1;
-            foreach (DataRowView row in viewStockMovDetalle)
+            DataTable tblEntradasDetalle = viewStockMovDetalle.ToTable();
+            DataTable tblEtiquetas;
+            if (impresora == "laser")
             {
-                string precio;
-                DataRow[] foundRow = tblArticulos.Select("IdArticuloART = '" + row["IdArticuloMSTKD"].ToString() + "'");
-                DataRow filaActual = foundRow[0];
-                precio = filaActual["PrecioPublicoART"].ToString();
-                int x = Convert.ToInt32(row["CantidadMSTKD"].ToString());
-                if (x != 0)
+                tblEtiquetas = TablaEtiquetas("laser");
+                int nroEtiqueta;
+                DataRow rowEnBlanco;
+                reintentar:
+                try
                 {
-                    if (i > 1 && (i %= 2) == 0)
+                    nroEtiqueta = Convert.ToInt16(Microsoft.VisualBasic.Interaction.InputBox("Ingrese el número de etiqueta por la cual empezar a imprimir.",
+                     "Titulo del diálogo", "1"));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Debe ingresar un valor numérico", "Trend Gestión");
+                    goto reintentar;
+                }
+                if (nroEtiqueta > 1)
+                {
+                    rowEnBlanco = tblEntradasDetalle.NewRow();
+                    rowEnBlanco["CantidadMSTKD"] = nroEtiqueta - 1;
+                    tblEntradasDetalle.Rows.InsertAt(rowEnBlanco, 0);
+                }
+                tblEtiquetas = TablaEtiquetas("laser");
+                int columna = 1;
+                foreach (DataRow row in tblEntradasDetalle.Rows)
+                {
+                    int x = Convert.ToInt32(row["CantidadMSTKD"].ToString());
+                    int i;
+                    for (i = 0; i < x; i++)
                     {
-                        nuevaFila[3] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
-                        nuevaFila[4] = row["DescripcionART"].ToString();
-                        nuevaFila[5] = precio;
-                        cfilas.Add(nuevaFila);
-                        nuevaFila = null;
-                        x = x - 1;
+                        if (columna == 1)
+                        {
+                            nuevaFila = tblEtiquetas.NewRow();
+                            if (!string.IsNullOrEmpty(row["IdArticuloMSTKD"].ToString())) nuevaFila[0] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
+                            nuevaFila[1] = row["DescripcionART"].ToString();
+                            nuevaFila[2] = "";
+                            columna = 2;
+                        }
+                        else if (columna == 2)
+                        {
+                            if (!string.IsNullOrEmpty(row["IdArticuloMSTKD"].ToString())) nuevaFila[3] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
+                            nuevaFila[4] = row["DescripcionART"].ToString();
+                            nuevaFila[5] = "";
+                            columna = 3;
+                        }
+                        else if (columna == 3)
+                        {
+                            if (!string.IsNullOrEmpty(row["IdArticuloMSTKD"].ToString())) nuevaFila[6] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
+                            nuevaFila[7] = row["DescripcionART"].ToString();
+                            nuevaFila[8] = "";
+                            columna = 4;
+                        }
+                        else if (columna == 4)
+                        {
+                            if (!string.IsNullOrEmpty(row["IdArticuloMSTKD"].ToString())) nuevaFila[9] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
+                            nuevaFila[10] = row["DescripcionART"].ToString();
+                            nuevaFila[11] = "";
+                            cfilas.Add(nuevaFila);
+                            nuevaFila = null;
+                            columna = 1;
+                        }
                     }
-                    for (i = 1; i <= x; i++)
+                }
+                if (nuevaFila != null)
+                {
+                    nuevaFila[3] = string.Empty;
+                    nuevaFila[4] = string.Empty;
+                    nuevaFila[5] = string.Empty;
+                    cfilas.Add(nuevaFila);
+                }
+                tblEntradasDetalle.Rows.RemoveAt(0);
+                EtiquetasA4Rpt informeEtiquetas = new EtiquetasA4Rpt(tblEtiquetas);
+                informeEtiquetas.Show();
+            }
+            else
+            {
+                tblEtiquetas = TablaEtiquetas("termica");
+                int columna = 1;
+                foreach (DataRow row in tblEntradasDetalle.Rows)
+                {
+                    int x = Convert.ToInt32(row["CantidadMSTKD"].ToString());
+                    int i;
+                    for (i = 0; i < x; i++)
                     {
-                        int j;
-                        if ((j = i % 2) != 0)
+                        if (columna == 1)
                         {
                             nuevaFila = tblEtiquetas.NewRow();
                             nuevaFila[0] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
                             nuevaFila[1] = row["DescripcionART"].ToString();
-                            nuevaFila[2] = precio;
+                            nuevaFila[2] = "";
+                            columna = 2;
                         }
-                        else
+                        else if (columna == 2)
                         {
                             nuevaFila[3] = "*" + row["IdArticuloMSTKD"].ToString() + "*";
                             nuevaFila[4] = row["DescripcionART"].ToString();
-                            nuevaFila[5] = precio;
+                            nuevaFila[5] = "";
                             cfilas.Add(nuevaFila);
                             nuevaFila = null;
+                            columna = 1;
                         }
                     }
                 }
+                if (nuevaFila != null)
+                {
+                    nuevaFila[3] = string.Empty;
+                    nuevaFila[4] = string.Empty;
+                    nuevaFila[5] = string.Empty;
+                    cfilas.Add(nuevaFila);
+                }
+                EtiquetasRpt frm = new EtiquetasRpt(tblEtiquetas, false);
+                frm.Show();
             }
-            if (nuevaFila != null)
-            {
-                nuevaFila[3] = string.Empty;
-                nuevaFila[4] = string.Empty;
-                nuevaFila[5] = string.Empty;
-                cfilas.Add(nuevaFila);
-            }
-            EtiquetasRpt frm = new EtiquetasRpt(tblEtiquetas, imprimePrecios);
-            frm.Show();
             Cursor.Current = Cursors.Arrow;
         }
 
         private void dgvStockMov_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             return;
+        }
+
+        private DataTable TablaEtiquetas(string tipoImpresora)
+        {
+            DataTable tblEtiquetas = new DataTable();
+            if (tipoImpresora == "laser")
+            {
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART", typeof(string));
+                tblEtiquetas.Columns.Add("Precio", typeof(string));
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD1", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART1", typeof(string));
+                tblEtiquetas.Columns.Add("Precio1", typeof(string));
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD2", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART2", typeof(string));
+                tblEtiquetas.Columns.Add("Precio2", typeof(string));
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD3", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART3", typeof(string));
+                tblEtiquetas.Columns.Add("Precio3", typeof(string));
+                cfilas = tblEtiquetas.Rows;
+            }
+            else
+            {
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART", typeof(string));
+                tblEtiquetas.Columns.Add("Precio", typeof(string));
+                tblEtiquetas.Columns.Add("IdArticuloMSTKD1", typeof(string));
+                tblEtiquetas.Columns.Add("DescripcionART1", typeof(string));
+                tblEtiquetas.Columns.Add("Precio1", typeof(string));
+                cfilas = tblEtiquetas.Rows;
+            }
+            return tblEtiquetas;
         }
 
     }

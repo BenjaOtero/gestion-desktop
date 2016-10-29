@@ -13,6 +13,8 @@
 prever caida servicio mysql y reiniciarlo
 probar importar datos
 probar y refactorizar exportar datos
+mente primary key duplicada tabla razonsocial
+opcion talles sistema americano
 
 
 

@@ -464,6 +464,12 @@ namespace StockVentas
             Application.Exit();
         }
 
+        private void ayudaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            System.Windows.Forms.Help.ShowHelp(this, Application.StartupPath + @"\Help\TrendGestion.chm");
+        }
+
         private void restaurarBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string fileName;

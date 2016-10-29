@@ -64,9 +64,9 @@
             this.datosComercialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.génerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.localesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.génerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStockEntradas = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +99,9 @@
             this.importarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarDatosActualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciaRemotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -391,13 +394,6 @@
             this.toolStripMenuItem6.Text = "Formas de pago";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.formasDePagoToolStripMenuItem_Click);
             // 
-            // génerosToolStripMenuItem
-            // 
-            this.génerosToolStripMenuItem.Name = "génerosToolStripMenuItem";
-            this.génerosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.génerosToolStripMenuItem.Text = "Rubros";
-            this.génerosToolStripMenuItem.Click += new System.EventHandler(this.génerosToolStripMenuItem_Click);
-            // 
             // localesToolStripMenuItem
             // 
             this.localesToolStripMenuItem.Name = "localesToolStripMenuItem";
@@ -411,6 +407,13 @@
             this.toolStripMenuItem7.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem7.Text = "Proveedores";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
+            // 
+            // génerosToolStripMenuItem
+            // 
+            this.génerosToolStripMenuItem.Name = "génerosToolStripMenuItem";
+            this.génerosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.génerosToolStripMenuItem.Text = "Rubros";
+            this.génerosToolStripMenuItem.Click += new System.EventHandler(this.génerosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -676,6 +679,10 @@
             // 
             // ayudaToolStripMenuItem
             // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ayudaToolStripMenuItem1,
+            this.asistenciaRemotaToolStripMenuItem,
+            this.acercaDeToolStripMenuItem});
             this.ayudaToolStripMenuItem.Image = global::StockVentas.Properties.Resources.ayuda;
             this.ayudaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
@@ -683,6 +690,25 @@
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             this.ayudaToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ayudaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // ayudaToolStripMenuItem1
+            // 
+            this.ayudaToolStripMenuItem1.Name = "ayudaToolStripMenuItem1";
+            this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
+            this.ayudaToolStripMenuItem1.Text = "Ayuda";
+            this.ayudaToolStripMenuItem1.Click += new System.EventHandler(this.ayudaToolStripMenuItem1_Click);
+            // 
+            // asistenciaRemotaToolStripMenuItem
+            // 
+            this.asistenciaRemotaToolStripMenuItem.Name = "asistenciaRemotaToolStripMenuItem";
+            this.asistenciaRemotaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.asistenciaRemotaToolStripMenuItem.Text = "Asistencia remota";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de . . .";
             // 
             // frmPrincipal
             // 
@@ -777,6 +803,9 @@
         private System.Windows.Forms.ToolStripMenuItem restaurarBaseDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarDatosActualesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem asistenciaRemotaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 

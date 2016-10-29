@@ -48,6 +48,8 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.aVerCheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -59,11 +61,11 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.grpDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -100,6 +102,7 @@
             // rdCodigoBarra
             // 
             this.rdCodigoBarra.AutoSize = true;
+            this.rdCodigoBarra.Checked = true;
             this.rdCodigoBarra.Location = new System.Drawing.Point(7, 39);
             this.rdCodigoBarra.Name = "rdCodigoBarra";
             this.rdCodigoBarra.Size = new System.Drawing.Size(105, 17);
@@ -111,12 +114,10 @@
             // rdLaser
             // 
             this.rdLaser.AutoSize = true;
-            this.rdLaser.Checked = true;
             this.rdLaser.Location = new System.Drawing.Point(7, 17);
             this.rdLaser.Name = "rdLaser";
             this.rdLaser.Size = new System.Drawing.Size(51, 17);
             this.rdLaser.TabIndex = 0;
-            this.rdLaser.TabStop = true;
             this.rdLaser.Text = "Laser";
             this.rdLaser.UseVisualStyleBackColor = true;
             // 
@@ -199,7 +200,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.btnArticulos);
             this.groupBox2.Controls.Add(this.btnBorrar);
             this.groupBox2.Controls.Add(this.btnSalir);
@@ -212,9 +212,9 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.Location = new System.Drawing.Point(348, 19);
+            this.btnArticulos.Location = new System.Drawing.Point(431, 19);
             this.btnArticulos.Name = "btnArticulos";
-            this.btnArticulos.Size = new System.Drawing.Size(138, 35);
+            this.btnArticulos.Size = new System.Drawing.Size(173, 35);
             this.btnArticulos.TabIndex = 2;
             this.btnArticulos.Text = "Articulos";
             this.btnArticulos.UseVisualStyleBackColor = true;
@@ -222,9 +222,9 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(198, 19);
+            this.btnBorrar.Location = new System.Drawing.Point(231, 19);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(138, 35);
+            this.btnBorrar.Size = new System.Drawing.Size(173, 35);
             this.btnBorrar.TabIndex = 1;
             this.btnBorrar.Text = "Borrar datos";
             this.btnBorrar.UseVisualStyleBackColor = true;
@@ -232,9 +232,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(648, 19);
+            this.btnSalir.Location = new System.Drawing.Point(631, 19);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(138, 35);
+            this.btnSalir.Size = new System.Drawing.Size(173, 35);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -243,9 +243,9 @@
             // btnGrabar
             // 
             this.btnGrabar.Enabled = false;
-            this.btnGrabar.Location = new System.Drawing.Point(48, 19);
+            this.btnGrabar.Location = new System.Drawing.Point(31, 19);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(138, 35);
+            this.btnGrabar.Size = new System.Drawing.Size(173, 35);
             this.btnGrabar.TabIndex = 0;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
@@ -254,6 +254,7 @@
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvDatos.Location = new System.Drawing.Point(12, 98);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.Size = new System.Drawing.Size(835, 358);
@@ -265,6 +266,19 @@
             this.dgvDatos.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDatos_DefaultValuesNeeded);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
             this.dgvDatos.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_RowEnter);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aVerCheToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 26);
+            // 
+            // aVerCheToolStripMenuItem
+            // 
+            this.aVerCheToolStripMenuItem.Name = "aVerCheToolStripMenuItem";
+            this.aVerCheToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.aVerCheToolStripMenuItem.Text = "A ver che";
             // 
             // bindingNavigator1
             // 
@@ -360,16 +374,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(498, 19);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(138, 35);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir etiquetas";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // frmStockEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +395,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -431,7 +436,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdCodigoBarra;
         private System.Windows.Forms.RadioButton rdLaser;
-        private System.Windows.Forms.Button btnImprimir;
-
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aVerCheToolStripMenuItem;
     }
 }

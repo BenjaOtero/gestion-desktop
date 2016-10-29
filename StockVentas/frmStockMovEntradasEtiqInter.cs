@@ -18,9 +18,16 @@ namespace StockVentas
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmStockMovInforme);
-            
+        {            
+            IfrmStockMovInforme formInterface = this.Owner as IfrmStockMovInforme;
+            if (formInterface != null)
+            {
+                if(rdLaser.Checked)
+                    formInterface.ImprimirEtiquetas("laser");
+                else
+                    formInterface.ImprimirEtiquetas("termica");
+            }
+            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

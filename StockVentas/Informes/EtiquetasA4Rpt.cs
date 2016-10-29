@@ -29,15 +29,12 @@ namespace StockVentas
             this.reportViewer1.LocalReport.ReportPath = path;
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Dataset_informes", tblEtiquetas));
             System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
-            // Set margins
             pg.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0); //centesimas de pulgada
-            PaperSize ps = new PaperSize();
-            ps.RawKind = 9; // el 9 setea la hoja A4
-            pg.PaperSize = ps;
+            pg.PaperSize = new PaperSize("A4", 827, 1169); // 8.27 in x 11.69 in
             pg.PrinterResolution.Kind = System.Drawing.Printing.PrinterResolutionKind.High;
             this.reportViewer1.SetPageSettings(pg);
-            this.reportViewer1.PageSetupDialog();
-            this.reportViewer1.RefreshReport();            
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
         }
     }
 }
