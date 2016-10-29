@@ -55,7 +55,7 @@
             this.txtNombreFantasiaRAZ = new System.Windows.Forms.TextBox();
             this.txtRazonSocialRAZ = new System.Windows.Forms.TextBox();
             this.txtIdRazonSocialRAZ = new System.Windows.Forms.TextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new customBindingSource();
             this.groupBox2.SuspendLayout();
             this.grpCampos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -371,7 +371,7 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.GroupBox grpCampos;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private customBindingSource bindingSource1;
         private System.Windows.Forms.ComboBox cmbIdCondicionIvaRAZ;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

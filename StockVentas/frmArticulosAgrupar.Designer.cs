@@ -49,7 +49,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdDescripcionDestino = new System.Windows.Forms.RadioButton();
             this.rdArticuloDestino = new System.Windows.Forms.RadioButton();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new customBindingSource();            
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosOrigen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosDestino)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -349,6 +349,6 @@
         private System.Windows.Forms.RadioButton rdArticuloDestino;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private customBindingSource bindingSource1;
     }
 }
