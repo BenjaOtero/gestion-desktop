@@ -187,6 +187,7 @@ namespace DAL
             SqlInsertCommand1.Parameters.Add("p_id_pc", MySqlDbType.Int32, 11, "IdPCVEN");
             SqlInsertCommand1.Parameters.Add("p_fecha", MySqlDbType.DateTime, 20, "FechaVEN");
             SqlInsertCommand1.Parameters.Add("p_cliente", MySqlDbType.Int32, 11, "IdClienteVEN");
+            SqlInsertCommand1.Parameters.Add("p_empleado", MySqlDbType.Int32, 11, "IdEmpleadoVEN");
             SqlInsertCommand1.Parameters.AddWithValue("p_cupon", "0");
             SqlInsertCommand1.CommandType = CommandType.StoredProcedure;
 
@@ -194,6 +195,7 @@ namespace DAL
             SqlUpdateCommand1.Parameters.Add("p_id_pc", MySqlDbType.Int32, 11, "IdPCVEN");
             SqlUpdateCommand1.Parameters.Add("p_fecha", MySqlDbType.DateTime, 20, "FechaVEN");
             SqlUpdateCommand1.Parameters.Add("p_cliente", MySqlDbType.Int32, 11, "IdClienteVEN");
+            SqlUpdateCommand1.Parameters.Add("p_empleado", MySqlDbType.Int32, 11, "IdEmpleadoVEN");
             SqlUpdateCommand1.Parameters.AddWithValue("p_cupon", "0");
             SqlUpdateCommand1.CommandType = CommandType.StoredProcedure;
 

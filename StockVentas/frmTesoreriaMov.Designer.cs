@@ -46,7 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lstPc = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -79,7 +79,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(87, 43);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(210, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // label1
             // 
@@ -97,7 +97,7 @@
             this.txtDetalle.Location = new System.Drawing.Point(90, 293);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(210, 20);
-            this.txtDetalle.TabIndex = 0;
+            this.txtDetalle.TabIndex = 3;
             // 
             // label2
             // 
@@ -137,7 +137,7 @@
             this.txtImporte.Location = new System.Drawing.Point(90, 319);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(210, 20);
-            this.txtImporte.TabIndex = 1;
+            this.txtImporte.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -188,7 +188,7 @@
             this.lstLocales.Name = "lstLocales";
             this.lstLocales.Size = new System.Drawing.Size(210, 95);
             this.lstLocales.Sorted = true;
-            this.lstLocales.TabIndex = 3;
+            this.lstLocales.TabIndex = 1;
             // 
             // label6
             // 
@@ -207,7 +207,7 @@
             this.lstPc.Location = new System.Drawing.Point(87, 170);
             this.lstPc.Name = "lstPc";
             this.lstPc.Size = new System.Drawing.Size(210, 95);
-            this.lstPc.TabIndex = 35;
+            this.lstPc.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -367,7 +367,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lstPc;
         private System.Windows.Forms.GroupBox groupBox2;
-        private customBindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;

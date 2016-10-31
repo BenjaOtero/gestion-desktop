@@ -83,6 +83,9 @@ namespace StockVentas
                 bindingSource1.Filter = "IdMovTESM = '" + PK + "'";
             }
             lblClave.ForeColor = System.Drawing.Color.DarkRed;
+            txtDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
+            txtImporte.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
+            txtImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(BL.Utilitarios.SoloNumerosConComa);
             txtDetalle.Focus();
         }
 
@@ -148,17 +151,7 @@ namespace StockVentas
                             MessageBoxIcon.Error);
                     return;
                 }
-                string formularioOrigen = "frmTesoreriaMov";
-                string accionProgress = "grabar";
-                frmProgress progreso = new frmProgress(dsTesoreriaMov, formularioOrigen, accionProgress);                
-                try
-                {
-                    progreso.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                BL.TesoreriaMovimientosBLL.GrabarDB(dsTesoreriaMov);
             }
         }
 

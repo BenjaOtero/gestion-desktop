@@ -26,7 +26,14 @@ namespace StockVentas
             DataRow rowTodos = tblGeneros.NewRow();
             rowTodos["IdGeneroGEN"] = 99;
             rowTodos["DescripcionGEN"] = "TODOS";
-            tblGeneros.Rows.Add(rowTodos);
+            try
+            {
+                tblGeneros.Rows.Add(rowTodos);
+            }
+            catch (Exception)
+            {
+                //    La columna 'DescripcionGEN' está restringida para ser única. Ya está presente el valor 'TODOS'
+            }
             cmbGenero.ValueMember = "IdGeneroGEN";
             cmbGenero.DisplayMember = "DescripcionGEN";
             cmbGenero.DropDownStyle = ComboBoxStyle.DropDown;
