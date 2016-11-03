@@ -19,8 +19,8 @@ namespace DAL
         {
             string connectionString;
             MySqlConnection objCon;
-            connectionString = ConfigurationManager.ConnectionStrings["DBMainLocal"].ConnectionString;
-            //  connectionString = ConfigurationManager.ConnectionStrings["DBMainCaro"].ConnectionString;
+            //connectionString = ConfigurationManager.ConnectionStrings["DBMainLocal"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["DBMainCaro"].ConnectionString;
             objCon = new MySqlConnection(connectionString);
         abrirConexion:
             try
@@ -55,8 +55,8 @@ namespace DAL
         {
             string connectionString;
             MySqlConnection objCon;
-            connectionString = ConfigurationManager.ConnectionStrings["DBDumpAdmin"].ConnectionString;
-            //  connectionString = ConfigurationManager.ConnectionStrings["DBDumpAdminCaro"].ConnectionString;
+            //connectionString = ConfigurationManager.ConnectionStrings["DBDumpAdmin"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["DBDumpAdminCaro"].ConnectionString;
             objCon = new MySqlConnection(connectionString);
         abrirConexion:
             try
