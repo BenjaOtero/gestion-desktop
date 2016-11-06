@@ -50,7 +50,7 @@
             this.txtDescripcionWebITE = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.grpCampos = new System.Windows.Forms.GroupBox();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new StockVentas.customBindingSource();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();

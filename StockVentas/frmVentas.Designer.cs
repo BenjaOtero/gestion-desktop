@@ -56,7 +56,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new StockVentas.customBindingSource();
             this.label3 = new System.Windows.Forms.Label();
             this.txtArticulo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,23 +83,25 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.Location = new System.Drawing.Point(669, 67);
+            this.btnArticulos.Image = global::StockVentas.Properties.Resources.articulos;
+            this.btnArticulos.Location = new System.Drawing.Point(669, 62);
             this.btnArticulos.Name = "btnArticulos";
-            this.btnArticulos.Size = new System.Drawing.Size(133, 29);
-            this.btnArticulos.TabIndex = 9;
+            this.btnArticulos.Size = new System.Drawing.Size(133, 40);
+            this.btnArticulos.TabIndex = 2;
             this.btnArticulos.Text = "Articulos";
+            this.btnArticulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnArticulos_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(89, 67);
+            this.btnGrabar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnGrabar.Location = new System.Drawing.Point(89, 62);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(133, 29);
-            this.btnGrabar.TabIndex = 6;
+            this.btnGrabar.Size = new System.Drawing.Size(133, 40);
+            this.btnGrabar.TabIndex = 4;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
             // grpVentas
             // 
@@ -263,7 +265,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 568);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 645);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -400,7 +402,7 @@
             this.grpABM.Enabled = false;
             this.grpABM.Location = new System.Drawing.Point(12, 103);
             this.grpABM.Name = "grpABM";
-            this.grpABM.Size = new System.Drawing.Size(890, 106);
+            this.grpABM.Size = new System.Drawing.Size(890, 115);
             this.grpABM.TabIndex = 1;
             this.grpABM.TabStop = false;
             // 
@@ -421,11 +423,13 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(524, 67);
+            this.btnBorrar.Image = global::StockVentas.Properties.Resources.borrar;
+            this.btnBorrar.Location = new System.Drawing.Point(524, 62);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(133, 29);
-            this.btnBorrar.TabIndex = 8;
+            this.btnBorrar.Size = new System.Drawing.Size(133, 40);
+            this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -439,21 +443,26 @@
             // 
             // btnCancelEdit
             // 
-            this.btnCancelEdit.Location = new System.Drawing.Point(379, 67);
+            this.btnCancelEdit.Image = global::StockVentas.Properties.Resources.cancel;
+            this.btnCancelEdit.Location = new System.Drawing.Point(379, 62);
             this.btnCancelEdit.Name = "btnCancelEdit";
-            this.btnCancelEdit.Size = new System.Drawing.Size(133, 29);
+            this.btnCancelEdit.Size = new System.Drawing.Size(133, 40);
             this.btnCancelEdit.TabIndex = 7;
             this.btnCancelEdit.Text = "Cancelar edición";
+            this.btnCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelEdit.UseVisualStyleBackColor = true;
             this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(234, 67);
+            this.btnEditar.Image = global::StockVentas.Properties.Resources.editar;
+            this.btnEditar.Location = new System.Drawing.Point(234, 62);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(133, 29);
-            this.btnEditar.TabIndex = 7;
+            this.btnEditar.Size = new System.Drawing.Size(133, 40);
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -509,9 +518,9 @@
             // 
             this.dgvDatos.AllowUserToResizeRows = false;
             this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvDatos.Location = new System.Drawing.Point(12, 215);
+            this.dgvDatos.Location = new System.Drawing.Point(12, 224);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(890, 454);
+            this.dgvDatos.Size = new System.Drawing.Size(890, 445);
             this.dgvDatos.TabIndex = 4;
             this.dgvDatos.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDatos_DataError);
             // 
@@ -520,7 +529,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(914, 593);
+            this.ClientSize = new System.Drawing.Size(914, 670);
             this.ControlBox = false;
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dgvDatos);

@@ -56,21 +56,26 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(172, 17);
+            this.btnSalir.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(172, 13);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(130, 30);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Size = new System.Drawing.Size(130, 39);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = " Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(20, 17);
+            this.btnAceptar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnAceptar.Location = new System.Drawing.Point(20, 13);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(130, 30);
+            this.btnAceptar.Size = new System.Drawing.Size(130, 39);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Grabar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -169,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 386);
+            this.ClientSize = new System.Drawing.Size(345, 393);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;

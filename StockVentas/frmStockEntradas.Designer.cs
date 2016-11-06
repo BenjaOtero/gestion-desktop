@@ -50,7 +50,7 @@
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aVerCheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new StockVentas.customBindingSource();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -212,44 +212,50 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.Location = new System.Drawing.Point(431, 19);
+            this.btnArticulos.Image = global::StockVentas.Properties.Resources.articulos;
+            this.btnArticulos.Location = new System.Drawing.Point(430, 17);
             this.btnArticulos.Name = "btnArticulos";
-            this.btnArticulos.Size = new System.Drawing.Size(173, 35);
+            this.btnArticulos.Size = new System.Drawing.Size(173, 40);
             this.btnArticulos.TabIndex = 2;
             this.btnArticulos.Text = "Articulos";
+            this.btnArticulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnArticulos_Click);
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(231, 19);
+            this.btnBorrar.Image = global::StockVentas.Properties.Resources.borrar;
+            this.btnBorrar.Location = new System.Drawing.Point(231, 17);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(173, 35);
-            this.btnBorrar.TabIndex = 1;
+            this.btnBorrar.Size = new System.Drawing.Size(160, 40);
+            this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar datos";
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(631, 19);
+            this.btnSalir.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(642, 17);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(173, 35);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Size = new System.Drawing.Size(160, 40);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = " Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Enabled = false;
-            this.btnGrabar.Location = new System.Drawing.Point(31, 19);
+            this.btnGrabar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnGrabar.Location = new System.Drawing.Point(32, 17);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(173, 35);
-            this.btnGrabar.TabIndex = 0;
+            this.btnGrabar.Size = new System.Drawing.Size(160, 40);
+            this.btnGrabar.TabIndex = 4;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
             // dgvDatos
             // 

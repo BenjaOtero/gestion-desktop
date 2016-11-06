@@ -152,7 +152,7 @@
             this.chkLiquidado.Size = new System.Drawing.Size(96, 17);
             this.chkLiquidado.TabIndex = 14;
             this.chkLiquidado.Text = "Liquidado        ";
-            this.chkLiquidado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkLiquidado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;      ;
             this.chkLiquidado.UseVisualStyleBackColor = true;
             // 
             // chkTodos
@@ -166,7 +166,7 @@
             this.chkTodos.Size = new System.Drawing.Size(111, 17);
             this.chkTodos.TabIndex = 14;
             this.chkTodos.Text = "Seleccionar todos";
-            this.chkTodos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;      ;
             this.chkTodos.UseVisualStyleBackColor = true;
             this.chkTodos.Click += new System.EventHandler(this.chkTodos_Click);
             // 

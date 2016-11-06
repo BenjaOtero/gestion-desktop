@@ -51,7 +51,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new StockVentas.customBindingSource();
             this.dgvDatos = new StockVentas.customDgvw();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,33 +155,40 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.Location = new System.Drawing.Point(317, 17);
+            this.btnArticulos.Image = global::StockVentas.Properties.Resources.articulos;
+            this.btnArticulos.Location = new System.Drawing.Point(314, 16);
             this.btnArticulos.Name = "btnArticulos";
-            this.btnArticulos.Size = new System.Drawing.Size(200, 35);
+            this.btnArticulos.Size = new System.Drawing.Size(193, 40);
             this.btnArticulos.TabIndex = 2;
             this.btnArticulos.Text = "Articulos";
+            this.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;            
+            this.btnArticulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnArticulos_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(555, 17);
+            this.btnCancelar.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnCancelar.Location = new System.Drawing.Point(558, 16);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(200, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(193, 40);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Salir";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(79, 16);
+            this.btnGrabar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnGrabar.Location = new System.Drawing.Point(83, 15);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(200, 35);
-            this.btnGrabar.TabIndex = 0;
+            this.btnGrabar.Size = new System.Drawing.Size(180, 40);
+            this.btnGrabar.TabIndex = 4;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            this.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
             // bindingNavigator1
             // 
@@ -283,7 +290,6 @@
             this.dgvDatos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDatos_CellBeginEdit);
             this.dgvDatos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEnter);
             this.dgvDatos.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDatos_CellValidating);
-            //this.dgvDatos.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDatos_DataError);
             this.dgvDatos.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDatos_DefaultValuesNeeded);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
             this.dgvDatos.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_RowEnter);
