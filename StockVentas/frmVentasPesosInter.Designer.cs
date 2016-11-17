@@ -147,28 +147,33 @@
             this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Location = new System.Drawing.Point(9, 307);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 62);
+            this.groupBox1.Size = new System.Drawing.Size(340, 65);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Location = new System.Drawing.Point(177, 19);
+            this.btnSalir.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(182, 15);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(144, 30);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Size = new System.Drawing.Size(136, 41);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = " Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(20, 19);
+            this.btnAceptar.Image = global::StockVentas.Properties.Resources.aceptar;
+            this.btnAceptar.Location = new System.Drawing.Point(23, 15);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(144, 30);
+            this.btnAceptar.Size = new System.Drawing.Size(136, 41);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -229,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 375);
+            this.ClientSize = new System.Drawing.Size(358, 380);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lstLocales);
             this.Controls.Add(this.label1);
