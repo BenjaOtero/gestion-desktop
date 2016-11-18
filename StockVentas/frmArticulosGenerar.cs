@@ -3,6 +3,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Entities;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace StockVentas
 {
@@ -105,6 +107,24 @@ namespace StockVentas
             txtCosto.Text = "0";
             txtPublico.Text = "0";
             txtMayor.Text = "0";
+
+            Dictionary<Int32, String> tallesAmericanos = new Dictionary<int, string>();
+            tallesAmericanos.Add(0, "XXS");
+            tallesAmericanos.Add(1, "XS");
+            tallesAmericanos.Add(2, "S");
+            tallesAmericanos.Add(3, "M");
+            tallesAmericanos.Add(4, "L");
+            tallesAmericanos.Add(5, "XL");
+            tallesAmericanos.Add(6, "XXL");
+            cmbTalleDesde.DataSource = new BindingSource(tallesAmericanos, null);
+            cmbTalleDesde.DisplayMember = "Value";
+            cmbTalleDesde.ValueMember = "Key";
+            cmbTalleDesde.SelectedValue = -1;
+            cmbTalleHasta.DataSource = new BindingSource(tallesAmericanos, null);
+            cmbTalleHasta.DisplayMember = "Value";
+            cmbTalleHasta.ValueMember = "Key";
+            cmbTalleHasta.SelectedValue = -1;
+
         }
 
         private void frmArticulosGenerar_Activated(object sender, EventArgs e)
@@ -407,16 +427,34 @@ namespace StockVentas
                 txtDesde.Focus();
                 return false;
             }
-            if (txtDesde.Text != "" && txtHasta.Text != "")
+            if (rdNumerico.Checked)
             {
-                var desde = Convert.ToInt32(txtDesde.Text);
-                var hasta = Convert.ToInt32(txtHasta.Text);
-                if (desde > hasta)
+                if (txtDesde.Text != "" && txtHasta.Text != "")
                 {
-                    MessageBox.Show("'Desde talle' debe ser menor o igual que 'hasta talle'.", "Trend Gestión");
-                    txtDesde.Focus();
-                    return false;
+                    var desde = Convert.ToInt32(txtDesde.Text);
+                    var hasta = Convert.ToInt32(txtHasta.Text);
+                    if (desde > hasta)
+                    {
+                        MessageBox.Show("'Desde talle' debe ser menor o igual que 'hasta talle'.", "Trend Gestión");
+                        txtDesde.Focus();
+                        return false;
 
+                    }
+                }
+            }
+            else
+            {
+                if (cmbTalleDesde.Text != "" && cmbTalleHasta.Text != "")
+                {
+                    int desde = Convert.ToInt32(cmbTalleDesde.SelectedValue.ToString());
+                    int hasta = Convert.ToInt32(cmbTalleHasta.SelectedValue.ToString());
+                    if (desde > hasta)
+                    {
+                        MessageBox.Show("'Desde talle' debe ser menor o igual que 'hasta talle'.", "Trend Gestión");
+                        txtDesde.Focus();
+                        return false;
+
+                    }
                 }
             }
             if (String.IsNullOrEmpty(txtCosto.Text))
@@ -493,5 +531,26 @@ namespace StockVentas
             return nroItemDescripcion;
         }
 
+        private void rdAmericano_Click(object sender, EventArgs e)
+        {
+            txtDesde.Visible = false;
+            txtHasta.Visible = false;
+            cmbTalleDesde.Visible = true;
+            cmbTalleDesde.Location = new System.Drawing.Point(126, 334);
+            cmbTalleDesde.Size = new System.Drawing.Size(301, 20);
+            cmbTalleHasta.Visible = true;
+            cmbTalleHasta.Location = new System.Drawing.Point(126, 360);
+            cmbTalleHasta.Size = new System.Drawing.Size(301, 20);
+            grpIncrementar.Enabled = false;
+        }
+
+        private void rdNumerico_Click(object sender, EventArgs e)
+        {
+            txtDesde.Visible = true;
+            txtHasta.Visible = true;
+            cmbTalleDesde.Visible = false;
+            cmbTalleHasta.Visible = false;
+            grpIncrementar.Enabled = true;
+        }
     }
 }

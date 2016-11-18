@@ -50,7 +50,7 @@
             this.txtMayor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpIncrementar = new System.Windows.Forms.GroupBox();
             this.rd2 = new System.Windows.Forms.RadioButton();
             this.rd1 = new System.Windows.Forms.RadioButton();
             this.txtDesde = new System.Windows.Forms.TextBox();
@@ -61,8 +61,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cmbAlicuota = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdAmericano = new System.Windows.Forms.RadioButton();
+            this.rdNumerico = new System.Windows.Forms.RadioButton();
+            this.cmbTalleDesde = new System.Windows.Forms.ComboBox();
+            this.cmbTalleHasta = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpIncrementar.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbItem
@@ -122,7 +128,7 @@
             this.groupBox2.Controls.Add(this.btnGrabar);
             this.groupBox2.Location = new System.Drawing.Point(439, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(160, 522);
+            this.groupBox2.Size = new System.Drawing.Size(160, 586);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
@@ -192,7 +198,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(13, 266);
+            this.label2.Location = new System.Drawing.Point(13, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
             this.label2.TabIndex = 36;
@@ -203,7 +209,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(13, 292);
+            this.label4.Location = new System.Drawing.Point(13, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 15);
             this.label4.TabIndex = 38;
@@ -214,7 +220,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(13, 344);
+            this.label5.Location = new System.Drawing.Point(13, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 15);
             this.label5.TabIndex = 40;
@@ -222,7 +228,7 @@
             // 
             // txtPublico
             // 
-            this.txtPublico.Location = new System.Drawing.Point(126, 338);
+            this.txtPublico.Location = new System.Drawing.Point(126, 412);
             this.txtPublico.Name = "txtPublico";
             this.txtPublico.Size = new System.Drawing.Size(301, 20);
             this.txtPublico.TabIndex = 8;
@@ -233,7 +239,7 @@
             this.label7.CausesValidation = false;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label7.Location = new System.Drawing.Point(13, 318);
+            this.label7.Location = new System.Drawing.Point(13, 392);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 15);
             this.label7.TabIndex = 42;
@@ -241,7 +247,7 @@
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(126, 312);
+            this.txtCosto.Location = new System.Drawing.Point(126, 386);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(301, 20);
             this.txtCosto.TabIndex = 7;
@@ -251,7 +257,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label8.Location = new System.Drawing.Point(13, 370);
+            this.label8.Location = new System.Drawing.Point(13, 444);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 15);
             this.label8.TabIndex = 44;
@@ -259,7 +265,7 @@
             // 
             // txtMayor
             // 
-            this.txtMayor.Location = new System.Drawing.Point(126, 364);
+            this.txtMayor.Location = new System.Drawing.Point(126, 438);
             this.txtMayor.Name = "txtMayor";
             this.txtMayor.Size = new System.Drawing.Size(302, 20);
             this.txtMayor.TabIndex = 9;
@@ -269,7 +275,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(13, 422);
+            this.label9.Location = new System.Drawing.Point(13, 496);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 15);
             this.label9.TabIndex = 46;
@@ -278,22 +284,22 @@
             // cmbProveedor
             // 
             this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(126, 417);
+            this.cmbProveedor.Location = new System.Drawing.Point(126, 491);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(302, 21);
             this.cmbProveedor.TabIndex = 11;
             // 
-            // groupBox1
+            // grpIncrementar
             // 
-            this.groupBox1.Controls.Add(this.rd2);
-            this.groupBox1.Controls.Add(this.rd1);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(16, 459);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 66);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Valor a incrementar por talle";
+            this.grpIncrementar.Controls.Add(this.rd2);
+            this.grpIncrementar.Controls.Add(this.rd1);
+            this.grpIncrementar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpIncrementar.Location = new System.Drawing.Point(16, 523);
+            this.grpIncrementar.Name = "grpIncrementar";
+            this.grpIncrementar.Size = new System.Drawing.Size(413, 66);
+            this.grpIncrementar.TabIndex = 13;
+            this.grpIncrementar.TabStop = false;
+            this.grpIncrementar.Text = "Valor a incrementar por talle";
             // 
             // rd2
             // 
@@ -321,14 +327,14 @@
             // 
             // txtDesde
             // 
-            this.txtDesde.Location = new System.Drawing.Point(126, 260);
+            this.txtDesde.Location = new System.Drawing.Point(126, 334);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(301, 20);
             this.txtDesde.TabIndex = 5;
             // 
             // txtHasta
             // 
-            this.txtHasta.Location = new System.Drawing.Point(126, 286);
+            this.txtHasta.Location = new System.Drawing.Point(126, 360);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(301, 20);
             this.txtHasta.TabIndex = 6;
@@ -374,7 +380,7 @@
             // cmbAlicuota
             // 
             this.cmbAlicuota.FormattingEnabled = true;
-            this.cmbAlicuota.Location = new System.Drawing.Point(126, 390);
+            this.cmbAlicuota.Location = new System.Drawing.Point(126, 464);
             this.cmbAlicuota.Name = "cmbAlicuota";
             this.cmbAlicuota.Size = new System.Drawing.Size(301, 21);
             this.cmbAlicuota.TabIndex = 10;
@@ -384,22 +390,81 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label13.Location = new System.Drawing.Point(13, 396);
+            this.label13.Location = new System.Drawing.Point(13, 470);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(68, 15);
             this.label13.TabIndex = 3;
             this.label13.Text = "Alícuota iva";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdAmericano);
+            this.groupBox3.Controls.Add(this.rdNumerico);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.Location = new System.Drawing.Point(12, 261);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(417, 67);
+            this.groupBox3.TabIndex = 49;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sistema de talles";
+            // 
+            // rdAmericano
+            // 
+            this.rdAmericano.AutoSize = true;
+            this.rdAmericano.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rdAmericano.Location = new System.Drawing.Point(7, 43);
+            this.rdAmericano.Name = "rdAmericano";
+            this.rdAmericano.Size = new System.Drawing.Size(75, 17);
+            this.rdAmericano.TabIndex = 0;
+            this.rdAmericano.Text = "Americano";
+            this.rdAmericano.UseVisualStyleBackColor = true;
+            this.rdAmericano.Click += new System.EventHandler(this.rdAmericano_Click);
+            // 
+            // rdNumerico
+            // 
+            this.rdNumerico.AutoSize = true;
+            this.rdNumerico.Checked = true;
+            this.rdNumerico.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rdNumerico.Location = new System.Drawing.Point(7, 20);
+            this.rdNumerico.Name = "rdNumerico";
+            this.rdNumerico.Size = new System.Drawing.Size(70, 17);
+            this.rdNumerico.TabIndex = 0;
+            this.rdNumerico.TabStop = true;
+            this.rdNumerico.Text = "Numérico";
+            this.rdNumerico.UseVisualStyleBackColor = true;
+            this.rdNumerico.Click += new System.EventHandler(this.rdNumerico_Click);
+            // 
+            // cmbTalleDesde
+            // 
+            this.cmbTalleDesde.FormattingEnabled = true;
+            this.cmbTalleDesde.Location = new System.Drawing.Point(-1, 148);
+            this.cmbTalleDesde.Name = "cmbTalleDesde";
+            this.cmbTalleDesde.Size = new System.Drawing.Size(121, 21);
+            this.cmbTalleDesde.TabIndex = 8;
+            this.cmbTalleDesde.Visible = false;
+            // 
+            // cmbTalleHasta
+            // 
+            this.cmbTalleHasta.FormattingEnabled = true;
+            this.cmbTalleHasta.Location = new System.Drawing.Point(-1, 180);
+            this.cmbTalleHasta.Name = "cmbTalleHasta";
+            this.cmbTalleHasta.Size = new System.Drawing.Size(121, 21);
+            this.cmbTalleHasta.TabIndex = 8;
+            this.cmbTalleHasta.Visible = false;
+            // 
             // frmArticulosGenerar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 537);
+            this.ClientSize = new System.Drawing.Size(606, 597);
+            this.Controls.Add(this.cmbTalleHasta);
+            this.Controls.Add(this.cmbTalleDesde);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDescripcionWeb);
             this.Controls.Add(this.txtHasta);
             this.Controls.Add(this.txtDesde);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpIncrementar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbProveedor);
             this.Controls.Add(this.label8);
@@ -427,8 +492,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmArticulosGenerar_FormClosing);
             this.Load += new System.EventHandler(this.frmArticulosGenerar_Load);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpIncrementar.ResumeLayout(false);
+            this.grpIncrementar.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,7 +525,7 @@
         private System.Windows.Forms.TextBox txtMayor;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbProveedor;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpIncrementar;
         private System.Windows.Forms.RadioButton rd2;
         private System.Windows.Forms.RadioButton rd1;
         private System.Windows.Forms.TextBox txtDesde;
@@ -469,5 +536,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cmbAlicuota;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rdAmericano;
+        private System.Windows.Forms.RadioButton rdNumerico;
+        private System.Windows.Forms.ComboBox cmbTalleDesde;
+        private System.Windows.Forms.ComboBox cmbTalleHasta;
     }
 }
