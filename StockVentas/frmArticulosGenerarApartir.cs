@@ -90,24 +90,33 @@ namespace StockVentas
                 string talle = colorTalle.Substring(2, 2);
                 string[] separados;
                 separados = strDescripcion.Split(" ".ToCharArray());
-                int total = separados.Count();
+                int totalPalabras = separados.Count();
+                int totalPalabrasDescripcionColor = 0;
+                if (color != "00")
+                {
+                    DataRow[] colorEncontrado = tblColores.Select("IdColorCOL = '" + color + "'");
+                    string descripcionColor = colorEncontrado[0]["DescripcionCOL"].ToString();
+                    string[] separadosDescripcionColor;
+                    separadosDescripcionColor = descripcionColor.Split(" ".ToCharArray());
+                    totalPalabrasDescripcionColor = separadosDescripcionColor.Count();
+                }
                 if (color != "00" && talle != "00")
                 {
-                    total = separados.Count() - 2;
+                    totalPalabras = separados.Count() - totalPalabrasDescripcionColor - 1;
                 }
                 else if (color != "00" && talle == "00")
                 {
-                    total = separados.Count() - 1;
+                    totalPalabras = separados.Count() - totalPalabrasDescripcionColor;
                 }
                 else if (color == "00" && talle != "00")
                 {
-                    total = separados.Count() - 1;
+                    totalPalabras = separados.Count() - 1;
                 }
                 else 
                 {
-                    total = separados.Count();
+                    totalPalabras = separados.Count();
                 }
-                for (int i = 0; i <total; i++)
+                for (int i = 0; i <totalPalabras; i++)
                 {
                     strDescripcionNueva += separados[i] + " ";
                 }
