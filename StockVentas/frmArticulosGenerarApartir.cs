@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Entities;
+using System.Collections.Generic;
 
 namespace StockVentas
 {
@@ -19,6 +20,7 @@ namespace StockVentas
         string strDescripcionNueva;
         string codigo;
         private BindingSource bindingSource;
+        Dictionary<Int32, String> tallesAmericanos;
 
         public frmArticulosGenerarApartir()
         {
@@ -70,6 +72,22 @@ namespace StockVentas
             lstColores.SelectedValue = -1;
             rd1.Checked = true;
             tblProveedores = BL.GetDataBLL.Proveedores();
+            tallesAmericanos = new Dictionary<int, string>();
+            tallesAmericanos.Add(0, "XXS");
+            tallesAmericanos.Add(1, "XS");
+            tallesAmericanos.Add(2, "S");
+            tallesAmericanos.Add(3, "M");
+            tallesAmericanos.Add(4, "L");
+            tallesAmericanos.Add(5, "XL");
+            tallesAmericanos.Add(6, "XXL");
+            cmbTalleDesde.DataSource = new BindingSource(tallesAmericanos, null);
+            cmbTalleDesde.DisplayMember = "Value";
+            cmbTalleDesde.ValueMember = "Key";
+            cmbTalleDesde.SelectedValue = -1;
+            cmbTalleHasta.DataSource = new BindingSource(tallesAmericanos, null);
+            cmbTalleHasta.DisplayMember = "Value";
+            cmbTalleHasta.ValueMember = "Key";
+            cmbTalleHasta.SelectedValue = -1;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)

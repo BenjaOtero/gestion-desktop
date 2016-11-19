@@ -108,7 +108,6 @@ namespace StockVentas
             txtCosto.Text = "0";
             txtPublico.Text = "0";
             txtMayor.Text = "0";
-
             tallesAmericanos = new Dictionary<int, string>();
             tallesAmericanos.Add(0, "XXS");
             tallesAmericanos.Add(1, "XS");

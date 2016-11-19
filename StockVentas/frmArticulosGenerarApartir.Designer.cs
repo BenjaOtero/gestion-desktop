@@ -43,8 +43,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lstColores = new System.Windows.Forms.ListBox();
             this.cmbArticulo = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdAmericano = new System.Windows.Forms.RadioButton();
+            this.rdNumerico = new System.Windows.Forms.RadioButton();
+            this.cmbTalleHasta = new System.Windows.Forms.ComboBox();
+            this.cmbTalleDesde = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -54,7 +60,7 @@
             this.groupBox2.Controls.Add(this.btnGrabar);
             this.groupBox2.Location = new System.Drawing.Point(379, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(156, 290);
+            this.groupBox2.Size = new System.Drawing.Size(156, 364);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
@@ -90,14 +96,14 @@
             // 
             // txtHasta
             // 
-            this.txtHasta.Location = new System.Drawing.Point(86, 208);
+            this.txtHasta.Location = new System.Drawing.Point(85, 352);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(282, 20);
             this.txtHasta.TabIndex = 4;
             // 
             // txtDesde
             // 
-            this.txtDesde.Location = new System.Drawing.Point(86, 182);
+            this.txtDesde.Location = new System.Drawing.Point(85, 326);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(282, 20);
             this.txtDesde.TabIndex = 3;
@@ -107,7 +113,7 @@
             this.groupBox1.Controls.Add(this.rd2);
             this.groupBox1.Controls.Add(this.rd1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(11, 233);
+            this.groupBox1.Location = new System.Drawing.Point(11, 255);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(357, 65);
             this.groupBox1.TabIndex = 60;
@@ -143,7 +149,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(8, 208);
+            this.label4.Location = new System.Drawing.Point(7, 352);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 15);
             this.label4.TabIndex = 63;
@@ -154,7 +160,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(8, 182);
+            this.label2.Location = new System.Drawing.Point(7, 326);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
             this.label2.TabIndex = 62;
@@ -200,11 +206,68 @@
             this.cmbArticulo.Size = new System.Drawing.Size(282, 21);
             this.cmbArticulo.TabIndex = 1;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdAmericano);
+            this.groupBox3.Controls.Add(this.rdNumerico);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.Location = new System.Drawing.Point(12, 182);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(356, 67);
+            this.groupBox3.TabIndex = 64;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sistema de talles";
+            // 
+            // rdAmericano
+            // 
+            this.rdAmericano.AutoSize = true;
+            this.rdAmericano.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rdAmericano.Location = new System.Drawing.Point(7, 43);
+            this.rdAmericano.Name = "rdAmericano";
+            this.rdAmericano.Size = new System.Drawing.Size(75, 17);
+            this.rdAmericano.TabIndex = 0;
+            this.rdAmericano.Text = "Americano";
+            this.rdAmericano.UseVisualStyleBackColor = true;
+            // 
+            // rdNumerico
+            // 
+            this.rdNumerico.AutoSize = true;
+            this.rdNumerico.Checked = true;
+            this.rdNumerico.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rdNumerico.Location = new System.Drawing.Point(7, 20);
+            this.rdNumerico.Name = "rdNumerico";
+            this.rdNumerico.Size = new System.Drawing.Size(70, 17);
+            this.rdNumerico.TabIndex = 0;
+            this.rdNumerico.TabStop = true;
+            this.rdNumerico.Text = "Numérico";
+            this.rdNumerico.UseVisualStyleBackColor = true;
+            // 
+            // cmbTalleHasta
+            // 
+            this.cmbTalleHasta.FormattingEnabled = true;
+            this.cmbTalleHasta.Location = new System.Drawing.Point(10, 104);
+            this.cmbTalleHasta.Name = "cmbTalleHasta";
+            this.cmbTalleHasta.Size = new System.Drawing.Size(70, 21);
+            this.cmbTalleHasta.TabIndex = 65;
+            this.cmbTalleHasta.Visible = false;
+            // 
+            // cmbTalleDesde
+            // 
+            this.cmbTalleDesde.FormattingEnabled = true;
+            this.cmbTalleDesde.Location = new System.Drawing.Point(10, 72);
+            this.cmbTalleDesde.Name = "cmbTalleDesde";
+            this.cmbTalleDesde.Size = new System.Drawing.Size(70, 21);
+            this.cmbTalleDesde.TabIndex = 66;
+            this.cmbTalleDesde.Visible = false;
+            // 
             // frmArticulosGenerarApartir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 308);
+            this.ClientSize = new System.Drawing.Size(544, 383);
+            this.Controls.Add(this.cmbTalleHasta);
+            this.Controls.Add(this.cmbTalleDesde);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtHasta);
@@ -222,6 +285,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +309,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lstColores;
         private System.Windows.Forms.ComboBox cmbArticulo;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rdAmericano;
+        private System.Windows.Forms.RadioButton rdNumerico;
+        private System.Windows.Forms.ComboBox cmbTalleHasta;
+        private System.Windows.Forms.ComboBox cmbTalleDesde;
     }
 }
