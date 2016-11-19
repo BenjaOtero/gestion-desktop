@@ -19,6 +19,7 @@ namespace StockVentas
         private DataView viewColores;
         private Articulos entidad;
         string NroItem;
+        Dictionary<Int32, String> tallesAmericanos;
 
         public frmArticulosGenerar()
         {
@@ -108,7 +109,7 @@ namespace StockVentas
             txtPublico.Text = "0";
             txtMayor.Text = "0";
 
-            Dictionary<Int32, String> tallesAmericanos = new Dictionary<int, string>();
+            tallesAmericanos = new Dictionary<int, string>();
             tallesAmericanos.Add(0, "XXS");
             tallesAmericanos.Add(1, "XS");
             tallesAmericanos.Add(2, "S");
@@ -175,56 +176,106 @@ namespace StockVentas
                 string idGenero = cmbGenero.SelectedValue.ToString();
                 if (lstColores.SelectedIndices.Count > 0)
                 {
-                    if (txtDesde.Text != "")
+                    if (!string.IsNullOrEmpty(txtDesde.Text) || !string.IsNullOrEmpty(cmbTalleDesde.Text))
                     {
-                        if (rd1.Checked)
+                        if (rdNumerico.Checked)
                         {
-                            incrementar = 1;
+                            if (rd1.Checked)
+                            {
+                                incrementar = 1;
+                            }
+                            else
+                            {
+                                incrementar = 2;
+                            }
+                            foreach (DataRowView filaColor in lstColores.SelectedItems)
+                            {
+                                for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                                {
+                                    codigoColor = filaColor.Row[0].ToString();
+                                    nombreColor = filaColor.Row[1].ToString();
+                                    if (codigoColor.Length == 1)
+                                    {
+                                        codigoColor = "0" + codigoColor;
+                                    }
+                                    codigoTalle = i.ToString();
+                                    if (codigoTalle.Length == 1)
+                                    {
+                                        codigoTalle = "0" + codigoTalle;
+                                    }
+                                    idArticulo = codigo + codigoColor + codigoTalle;
+                                    string strItem = selectedDataRow["DescripcionITE"].ToString();
+                                    string descripcion = strItem + " " + txtDescripcion.Text + " " + nombreColor + " T" + codigoTalle;
+                                    int intCodigoColor = Convert.ToInt32(codigoColor);
+                                    entidad = new Articulos();
+                                    entidad.IdArticulo = idArticulo;
+                                    entidad.IdItem = idItem;
+                                    entidad.IdGenero = idGenero;
+                                    entidad.IdColor = intCodigoColor;
+                                    entidad.IdAlicuota = intAlicuota;
+                                    entidad.Talle = codigoTalle;
+                                    entidad.IdProveedor = intProveedor;
+                                    entidad.Descripcion = descripcion;
+                                    entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;
+                                    entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                                    entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
+                                    entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
+                                    entidad.Fecha = DateTime.Now;
+                                    entidad.Imagen = "";
+                                    entidad.ImagenBack = "";
+                                    entidad.ImagenColor = "";
+                                    entidad.NuevoWeb = 1;
+                                    entidad.Proveedor = cmbProveedor.Text;
+                                    BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
+                                }
+                            }
                         }
                         else
                         {
-                            incrementar = 2;    
-                        }
-                        foreach(DataRowView filaColor in lstColores.SelectedItems)
-                        {
-                            for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                            incrementar = 1;
+                            foreach (DataRowView filaColor in lstColores.SelectedItems)
                             {
-                                codigoColor = filaColor.Row[0].ToString();
-                                nombreColor = filaColor.Row[1].ToString();
-                                if (codigoColor.Length == 1)
+                                for (int i = Convert.ToInt32(cmbTalleDesde.SelectedValue); i <= Convert.ToInt32(cmbTalleHasta.SelectedValue); i += incrementar)
                                 {
-                                    codigoColor = "0" + codigoColor;
+                                    codigoColor = filaColor.Row[0].ToString();
+                                    nombreColor = filaColor.Row[1].ToString();
+                                    if (codigoColor.Length == 1)
+                                    {
+                                        codigoColor = "0" + codigoColor;
+                                    }
+                                    codigoTalle = i.ToString();
+                                    string descripcionTalle = "";
+                                    tallesAmericanos.TryGetValue(i, out descripcionTalle);
+                                    if (codigoTalle.Length == 1)
+                                    {
+                                        codigoTalle = "0" + codigoTalle;
+                                    }
+                                    idArticulo = codigo + codigoColor + codigoTalle;
+                                    string strItem = selectedDataRow["DescripcionITE"].ToString();
+                                    string descripcion = strItem + " " + txtDescripcion.Text + " " + nombreColor + " " + descripcionTalle;
+                                    int intCodigoColor = Convert.ToInt32(codigoColor);
+                                    entidad = new Articulos();
+                                    entidad.IdArticulo = idArticulo;
+                                    entidad.IdItem = idItem;
+                                    entidad.IdGenero = idGenero;
+                                    entidad.IdColor = intCodigoColor;
+                                    entidad.IdAlicuota = intAlicuota;
+                                    entidad.Talle = codigoTalle;
+                                    entidad.IdProveedor = intProveedor;
+                                    entidad.Descripcion = descripcion;
+                                    entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;
+                                    entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                                    entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
+                                    entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
+                                    entidad.Fecha = DateTime.Now;
+                                    entidad.Imagen = "";
+                                    entidad.ImagenBack = "";
+                                    entidad.ImagenColor = "";
+                                    entidad.NuevoWeb = 1;
+                                    entidad.Proveedor = cmbProveedor.Text;
+                                    BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                                 }
-                                codigoTalle = i.ToString();
-                                if (codigoTalle.Length == 1)
-                                {
-                                    codigoTalle = "0" + codigoTalle;
-                                }
-                                idArticulo = codigo + codigoColor + codigoTalle;
-                                string strItem = selectedDataRow["DescripcionITE"].ToString();
-                                string descripcion = strItem + " " + txtDescripcion.Text + " " + nombreColor + " T" + codigoTalle;
-                                int intCodigoColor = Convert.ToInt32(codigoColor);
-                                entidad = new Articulos();
-                                entidad.IdArticulo = idArticulo;
-                                entidad.IdItem = idItem;
-                                entidad.IdGenero = idGenero;
-                                entidad.IdColor = intCodigoColor;
-                                entidad.IdAlicuota = intAlicuota;
-                                entidad.Talle = codigoTalle;
-                                entidad.IdProveedor = intProveedor;
-                                entidad.Descripcion = descripcion;
-                                entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;                               
-                                entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                                entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
-                                entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
-                                entidad.Fecha = DateTime.Now;
-                                entidad.Imagen = "";
-                                entidad.ImagenBack = "";
-                                entidad.ImagenColor = "";
-                                entidad.NuevoWeb = 1;
-                                entidad.Proveedor = cmbProveedor.Text;
-                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
-                            }                            
+                            }
                         }
                     }
                     else
@@ -267,47 +318,88 @@ namespace StockVentas
                 }
                 else
                 {
-                    if (txtDesde.Text != "")
+                    if (!string.IsNullOrEmpty(txtDesde.Text) || !string.IsNullOrEmpty(cmbTalleDesde.Text))
                     {
-                        if (rd1.Checked)
+                        if (rdNumerico.Checked)
+                        {
+                            if (rd1.Checked)
+                            {
+                                incrementar = 1;
+                            }
+                            else
+                            {
+                                incrementar = 2;
+                            }
+                            for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                            {
+                                codigoTalle = i.ToString();
+                                if (codigoTalle.Length == 1)
+                                {
+                                    codigoTalle = "0" + codigoTalle;
+                                }
+                                idArticulo = codigo + "00" + codigoTalle;
+                                string strItem = selectedDataRow["DescripcionITE"].ToString();
+                                string descripcion = strItem + " " + txtDescripcion.Text + " T" + codigoTalle;
+                                int intCodigoColor = 0;
+                                entidad = new Articulos();
+                                entidad.IdArticulo = idArticulo;
+                                entidad.IdItem = idItem;
+                                entidad.IdGenero = idGenero;
+                                entidad.IdColor = intCodigoColor;
+                                entidad.IdAlicuota = intAlicuota;
+                                entidad.Talle = codigoTalle;
+                                entidad.IdProveedor = intProveedor;
+                                entidad.Descripcion = descripcion;
+                                entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;
+                                entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                                entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
+                                entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
+                                entidad.Fecha = DateTime.Now;
+                                entidad.Imagen = "";
+                                entidad.ImagenBack = "";
+                                entidad.ImagenColor = "";
+                                entidad.NuevoWeb = 1;
+                                entidad.Proveedor = cmbProveedor.Text;
+                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
+                            }
+                        }
+                        else
                         {
                             incrementar = 1;
-                        }
-                        else 
-                        {
-                            incrementar = 2;
-                        }
-                        for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
-                        {
-                            codigoTalle = i.ToString();
-                            if (codigoTalle.Length == 1)
+                            for (int i = Convert.ToInt32(cmbTalleDesde.SelectedValue); i <= Convert.ToInt32(cmbTalleHasta.SelectedValue); i += incrementar)
                             {
-                                codigoTalle = "0" + codigoTalle;
+                                codigoTalle = i.ToString();
+                                if (codigoTalle.Length == 1)
+                                {
+                                    codigoTalle = "0" + codigoTalle;
+                                }
+                                string descripcionTalle = "";
+                                tallesAmericanos.TryGetValue(i, out descripcionTalle);
+                                idArticulo = codigo + "00" + codigoTalle;
+                                string strItem = selectedDataRow["DescripcionITE"].ToString();
+                                string descripcion = strItem + " " + txtDescripcion.Text + " " + descripcionTalle;
+                                int intCodigoColor = 0;
+                                entidad = new Articulos();
+                                entidad.IdArticulo = idArticulo;
+                                entidad.IdItem = idItem;
+                                entidad.IdGenero = idGenero;
+                                entidad.IdColor = intCodigoColor;
+                                entidad.IdAlicuota = intAlicuota;
+                                entidad.Talle = codigoTalle;
+                                entidad.IdProveedor = intProveedor;
+                                entidad.Descripcion = descripcion;
+                                entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;
+                                entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
+                                entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
+                                entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
+                                entidad.Fecha = DateTime.Now;
+                                entidad.Imagen = "";
+                                entidad.ImagenBack = "";
+                                entidad.ImagenColor = "";
+                                entidad.NuevoWeb = 1;
+                                entidad.Proveedor = cmbProveedor.Text;
+                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                             }
-                            idArticulo = codigo + "00" + codigoTalle;
-                            string strItem = selectedDataRow["DescripcionITE"].ToString();
-                            string descripcion = strItem + " " + txtDescripcion.Text +  " T" + codigoTalle;
-                            int intCodigoColor = 0;
-                            entidad = new Articulos();
-                            entidad.IdArticulo = idArticulo;
-                            entidad.IdItem = idItem;
-                            entidad.IdGenero = idGenero;
-                            entidad.IdColor = intCodigoColor;
-                            entidad.IdAlicuota = intAlicuota;
-                            entidad.Talle = codigoTalle;
-                            entidad.IdProveedor = intProveedor;
-                            entidad.Descripcion = descripcion;
-                            entidad.DescripcionWeb = strItem + " " + txtDescripcionWeb.Text;
-                            entidad.PrecioCosto = Convert.ToDecimal(txtCosto.Text);
-                            entidad.PrecioPublico = Convert.ToDecimal(txtPublico.Text);
-                            entidad.PrecioMayor = Convert.ToDecimal(txtMayor.Text);
-                            entidad.Fecha = DateTime.Now;
-                            entidad.Imagen = "";
-                            entidad.ImagenBack = "";
-                            entidad.ImagenColor = "";
-                            entidad.NuevoWeb = 1;
-                            entidad.Proveedor = cmbProveedor.Text;
-                            BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                         }
                     }
                     else
@@ -534,7 +626,9 @@ namespace StockVentas
         private void rdAmericano_Click(object sender, EventArgs e)
         {
             txtDesde.Visible = false;
+            txtDesde.Text = string.Empty;
             txtHasta.Visible = false;
+            txtHasta.Text = string.Empty;
             cmbTalleDesde.Visible = true;
             cmbTalleDesde.Location = new System.Drawing.Point(126, 334);
             cmbTalleDesde.Size = new System.Drawing.Size(301, 20);
@@ -546,10 +640,12 @@ namespace StockVentas
 
         private void rdNumerico_Click(object sender, EventArgs e)
         {
+            cmbTalleDesde.Visible = false;
+            cmbTalleDesde.SelectedValue = -1;
+            cmbTalleHasta.Visible = false;
+            cmbTalleHasta.SelectedValue = -1;
             txtDesde.Visible = true;
             txtHasta.Visible = true;
-            cmbTalleDesde.Visible = false;
-            cmbTalleHasta.Visible = false;
             grpIncrementar.Enabled = true;
         }
     }
