@@ -34,7 +34,7 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtHasta = new System.Windows.Forms.TextBox();
             this.txtDesde = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpIncrementar = new System.Windows.Forms.GroupBox();
             this.rd2 = new System.Windows.Forms.RadioButton();
             this.rd1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,9 +48,11 @@
             this.rdNumerico = new System.Windows.Forms.RadioButton();
             this.cmbTalleHasta = new System.Windows.Forms.ComboBox();
             this.cmbTalleDesde = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpIncrementar.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -58,9 +60,9 @@
             this.groupBox2.Controls.Add(this.btnSalir);
             this.groupBox2.Controls.Add(this.btnColor);
             this.groupBox2.Controls.Add(this.btnGrabar);
-            this.groupBox2.Location = new System.Drawing.Point(379, 8);
+            this.groupBox2.Location = new System.Drawing.Point(365, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(156, 364);
+            this.groupBox2.Size = new System.Drawing.Size(156, 389);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
@@ -96,29 +98,29 @@
             // 
             // txtHasta
             // 
-            this.txtHasta.Location = new System.Drawing.Point(85, 352);
+            this.txtHasta.Location = new System.Drawing.Point(92, 356);
             this.txtHasta.Name = "txtHasta";
-            this.txtHasta.Size = new System.Drawing.Size(282, 20);
+            this.txtHasta.Size = new System.Drawing.Size(226, 20);
             this.txtHasta.TabIndex = 4;
             // 
             // txtDesde
             // 
-            this.txtDesde.Location = new System.Drawing.Point(85, 326);
+            this.txtDesde.Location = new System.Drawing.Point(92, 330);
             this.txtDesde.Name = "txtDesde";
-            this.txtDesde.Size = new System.Drawing.Size(282, 20);
+            this.txtDesde.Size = new System.Drawing.Size(226, 20);
             this.txtDesde.TabIndex = 3;
             // 
-            // groupBox1
+            // grpIncrementar
             // 
-            this.groupBox1.Controls.Add(this.rd2);
-            this.groupBox1.Controls.Add(this.rd1);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(11, 255);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(357, 65);
-            this.groupBox1.TabIndex = 60;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Valor a incrementar por talle";
+            this.grpIncrementar.Controls.Add(this.rd2);
+            this.grpIncrementar.Controls.Add(this.rd1);
+            this.grpIncrementar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpIncrementar.Location = new System.Drawing.Point(18, 259);
+            this.grpIncrementar.Name = "grpIncrementar";
+            this.grpIncrementar.Size = new System.Drawing.Size(301, 65);
+            this.grpIncrementar.TabIndex = 60;
+            this.grpIncrementar.TabStop = false;
+            this.grpIncrementar.Text = "Valor a incrementar por talle";
             // 
             // rd2
             // 
@@ -149,7 +151,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(7, 352);
+            this.label4.Location = new System.Drawing.Point(14, 356);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 15);
             this.label4.TabIndex = 63;
@@ -160,7 +162,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(7, 326);
+            this.label2.Location = new System.Drawing.Point(14, 330);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
             this.label2.TabIndex = 62;
@@ -171,7 +173,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(8, 39);
+            this.label1.Location = new System.Drawing.Point(15, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 61;
@@ -182,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(8, 16);
+            this.label3.Location = new System.Drawing.Point(15, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 53;
@@ -191,19 +193,19 @@
             // lstColores
             // 
             this.lstColores.FormattingEnabled = true;
-            this.lstColores.Location = new System.Drawing.Point(86, 42);
+            this.lstColores.Location = new System.Drawing.Point(93, 46);
             this.lstColores.Name = "lstColores";
             this.lstColores.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstColores.Size = new System.Drawing.Size(281, 134);
+            this.lstColores.Size = new System.Drawing.Size(225, 134);
             this.lstColores.Sorted = true;
             this.lstColores.TabIndex = 2;
             // 
             // cmbArticulo
             // 
             this.cmbArticulo.FormattingEnabled = true;
-            this.cmbArticulo.Location = new System.Drawing.Point(86, 15);
+            this.cmbArticulo.Location = new System.Drawing.Point(93, 19);
             this.cmbArticulo.Name = "cmbArticulo";
-            this.cmbArticulo.Size = new System.Drawing.Size(282, 21);
+            this.cmbArticulo.Size = new System.Drawing.Size(226, 21);
             this.cmbArticulo.TabIndex = 1;
             // 
             // groupBox3
@@ -211,9 +213,9 @@
             this.groupBox3.Controls.Add(this.rdAmericano);
             this.groupBox3.Controls.Add(this.rdNumerico);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox3.Location = new System.Drawing.Point(12, 182);
+            this.groupBox3.Location = new System.Drawing.Point(19, 186);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(356, 67);
+            this.groupBox3.Size = new System.Drawing.Size(300, 67);
             this.groupBox3.TabIndex = 64;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sistema de talles";
@@ -228,6 +230,7 @@
             this.rdAmericano.TabIndex = 0;
             this.rdAmericano.Text = "Americano";
             this.rdAmericano.UseVisualStyleBackColor = true;
+            this.rdAmericano.Click += new System.EventHandler(this.rdAmericano_Click);
             // 
             // rdNumerico
             // 
@@ -241,11 +244,12 @@
             this.rdNumerico.TabStop = true;
             this.rdNumerico.Text = "Numérico";
             this.rdNumerico.UseVisualStyleBackColor = true;
+            this.rdNumerico.Click += new System.EventHandler(this.rdNumerico_Click);
             // 
             // cmbTalleHasta
             // 
             this.cmbTalleHasta.FormattingEnabled = true;
-            this.cmbTalleHasta.Location = new System.Drawing.Point(10, 104);
+            this.cmbTalleHasta.Location = new System.Drawing.Point(17, 108);
             this.cmbTalleHasta.Name = "cmbTalleHasta";
             this.cmbTalleHasta.Size = new System.Drawing.Size(70, 21);
             this.cmbTalleHasta.TabIndex = 65;
@@ -254,41 +258,51 @@
             // cmbTalleDesde
             // 
             this.cmbTalleDesde.FormattingEnabled = true;
-            this.cmbTalleDesde.Location = new System.Drawing.Point(10, 72);
+            this.cmbTalleDesde.Location = new System.Drawing.Point(17, 76);
             this.cmbTalleDesde.Name = "cmbTalleDesde";
             this.cmbTalleDesde.Size = new System.Drawing.Size(70, 21);
             this.cmbTalleDesde.TabIndex = 66;
             this.cmbTalleDesde.Visible = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmbTalleHasta);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbTalleDesde);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lstColores);
+            this.groupBox1.Controls.Add(this.grpIncrementar);
+            this.groupBox1.Controls.Add(this.txtDesde);
+            this.groupBox1.Controls.Add(this.txtHasta);
+            this.groupBox1.Controls.Add(this.cmbArticulo);
+            this.groupBox1.Location = new System.Drawing.Point(12, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(339, 389);
+            this.groupBox1.TabIndex = 67;
+            this.groupBox1.TabStop = false;
+            // 
             // frmArticulosGenerarApartir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 383);
-            this.Controls.Add(this.cmbTalleHasta);
-            this.Controls.Add(this.cmbTalleDesde);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(530, 408);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtHasta);
-            this.Controls.Add(this.cmbArticulo);
-            this.Controls.Add(this.txtDesde);
-            this.Controls.Add(this.lstColores);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.groupBox2);
             this.Name = "frmArticulosGenerarApartir";
             this.Text = "Generar artículos desde uno existente.";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmArticulosGenerarApartir_FormClosing);
             this.Load += new System.EventHandler(this.frmArticulosGenerarApartir_Load);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpIncrementar.ResumeLayout(false);
+            this.grpIncrementar.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -300,7 +314,7 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.TextBox txtHasta;
         private System.Windows.Forms.TextBox txtDesde;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpIncrementar;
         private System.Windows.Forms.RadioButton rd2;
         private System.Windows.Forms.RadioButton rd1;
         private System.Windows.Forms.Label label4;
@@ -314,5 +328,6 @@
         private System.Windows.Forms.RadioButton rdNumerico;
         private System.Windows.Forms.ComboBox cmbTalleHasta;
         private System.Windows.Forms.ComboBox cmbTalleDesde;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

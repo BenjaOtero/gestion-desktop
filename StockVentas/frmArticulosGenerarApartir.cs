@@ -34,6 +34,8 @@ namespace StockVentas
             bindingSource.RemoveFilter();
             txtDesde.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
             txtHasta.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
+            cmbTalleDesde.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
+            cmbTalleHasta.KeyDown += new System.Windows.Forms.KeyEventHandler(BL.Utilitarios.EnterTab);
             txtDesde.Enter += new System.EventHandler(BL.Utilitarios.SelTextoTextBox);
             txtHasta.Enter += new System.EventHandler(BL.Utilitarios.SelTextoTextBox);
             txtDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(BL.Utilitarios.SoloNumeros);
@@ -73,13 +75,13 @@ namespace StockVentas
             rd1.Checked = true;
             tblProveedores = BL.GetDataBLL.Proveedores();
             tallesAmericanos = new Dictionary<int, string>();
-            tallesAmericanos.Add(0, "XXS");
-            tallesAmericanos.Add(1, "XS");
-            tallesAmericanos.Add(2, "S");
-            tallesAmericanos.Add(3, "M");
-            tallesAmericanos.Add(4, "L");
-            tallesAmericanos.Add(5, "XL");
-            tallesAmericanos.Add(6, "XXL");
+            tallesAmericanos.Add(1, "XXS");
+            tallesAmericanos.Add(2, "XS");
+            tallesAmericanos.Add(3, "S");
+            tallesAmericanos.Add(4, "M");
+            tallesAmericanos.Add(5, "L");
+            tallesAmericanos.Add(6, "XL");
+            tallesAmericanos.Add(7, "XXL");
             cmbTalleDesde.DataSource = new BindingSource(tallesAmericanos, null);
             cmbTalleDesde.DisplayMember = "Value";
             cmbTalleDesde.ValueMember = "Key";
@@ -160,38 +162,71 @@ namespace StockVentas
                 codigo = codigo.Substring(0, largoCodigo);
                 if (lstColores.SelectedIndices.Count > 0)
                 {
-                    if (txtDesde.Text != "")
+                    if (!string.IsNullOrEmpty(txtDesde.Text) || !string.IsNullOrEmpty(cmbTalleDesde.Text))
                     {
-                        if (rd1.Checked)
+                        if (rdNumerico.Checked)
                         {
-                            incrementar = 1;
+                            if (rd1.Checked)
+                            {
+                                incrementar = 1;
+                            }
+                            else
+                            {
+                                incrementar = 2;
+                            }
+                            foreach (DataRowView filaColor in lstColores.SelectedItems)
+                            {
+                                for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                                {
+                                    codigoColor = filaColor.Row[0].ToString();
+                                    nombreColor = filaColor.Row[1].ToString();
+                                    if (codigoColor.Length == 1)
+                                    {
+                                        codigoColor = "0" + codigoColor;
+                                    }
+                                    codigoTalle = i.ToString();
+                                    if (codigoTalle.Length == 1)
+                                    {
+                                        codigoTalle = "0" + codigoTalle;
+                                    }
+                                    idArticulo = codigo + codigoColor + codigoTalle;
+                                    string descripcion = strDescripcionNueva + nombreColor + " T" + codigoTalle;
+                                    entidad.IdArticulo = idArticulo;
+                                    entidad.IdColor = Convert.ToInt32(codigoColor);
+                                    entidad.Talle = codigoTalle;
+                                    entidad.Descripcion = descripcion;
+                                    BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
+                                }
+                            }
                         }
                         else
                         {
-                            incrementar = 2;
-                        }
-                        foreach (DataRowView filaColor in lstColores.SelectedItems)
-                        {
-                            for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                            incrementar = 1;
+                            foreach (DataRowView filaColor in lstColores.SelectedItems)
                             {
-                                codigoColor = filaColor.Row[0].ToString();
-                                nombreColor = filaColor.Row[1].ToString();
-                                if (codigoColor.Length == 1)
+                                for (int i = Convert.ToInt32(cmbTalleDesde.SelectedValue); i <= Convert.ToInt32(cmbTalleHasta.SelectedValue); i += incrementar)
                                 {
-                                    codigoColor = "0" + codigoColor;
+                                    codigoColor = filaColor.Row[0].ToString();
+                                    nombreColor = filaColor.Row[1].ToString();
+                                    if (codigoColor.Length == 1)
+                                    {
+                                        codigoColor = "0" + codigoColor;
+                                    }
+                                    codigoTalle = i.ToString();
+                                    if (codigoTalle.Length == 1)
+                                    {
+                                        codigoTalle = "0" + codigoTalle;
+                                    }
+                                    string descripcionTalle = "";
+                                    tallesAmericanos.TryGetValue(i, out descripcionTalle);
+                                    idArticulo = codigo + codigoColor + codigoTalle;
+                                    string descripcion = strDescripcionNueva + nombreColor + " " + descripcionTalle;
+                                    entidad.IdArticulo = idArticulo;
+                                    entidad.IdColor = Convert.ToInt32(codigoColor);
+                                    entidad.Talle = codigoTalle;
+                                    entidad.Descripcion = descripcion;
+                                    BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                                 }
-                                codigoTalle = i.ToString();
-                                if (codigoTalle.Length == 1)
-                                {
-                                    codigoTalle = "0" + codigoTalle;
-                                }
-                                idArticulo = codigo + codigoColor + codigoTalle;
-                                string descripcion = strDescripcionNueva + nombreColor + " T" + codigoTalle;
-                                entidad.IdArticulo = idArticulo;
-                                entidad.IdColor = Convert.ToInt32(codigoColor);
-                                entidad.Talle = codigoTalle;
-                                entidad.Descripcion = descripcion;
-                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                             }
                         }
                     }
@@ -323,6 +358,34 @@ namespace StockVentas
             }
             return true;
         }
-        
+
+        private void rdAmericano_Click(object sender, EventArgs e)
+        {
+            txtDesde.Visible = false;
+            txtDesde.Text = string.Empty;
+            txtHasta.Visible = false;
+            txtHasta.Text = string.Empty;
+            cmbTalleDesde.Visible = true;
+
+            cmbTalleDesde.Location = new System.Drawing.Point(92, 330);
+
+            cmbTalleDesde.Size = new System.Drawing.Size(226, 20);
+            cmbTalleHasta.Visible = true;
+            cmbTalleHasta.Location = new System.Drawing.Point(92, 356);
+            cmbTalleHasta.Size = new System.Drawing.Size(226, 20);
+            grpIncrementar.Enabled = false;
+        }
+
+        private void rdNumerico_Click(object sender, EventArgs e)
+        {
+            cmbTalleDesde.Visible = false;
+            cmbTalleDesde.SelectedValue = -1;
+            cmbTalleHasta.Visible = false;
+            cmbTalleHasta.SelectedValue = -1;
+            txtDesde.Visible = true;
+            txtHasta.Visible = true;
+            grpIncrementar.Enabled = true;
+        }
+
     }
 }
