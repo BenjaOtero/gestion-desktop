@@ -46,7 +46,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 97);
+            this.groupBox1.Size = new System.Drawing.Size(212, 125);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione una opción";
@@ -83,27 +83,32 @@
             this.groupBox2.Controls.Add(this.btnAceptar);
             this.groupBox2.Location = new System.Drawing.Point(239, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(167, 97);
+            this.groupBox2.Size = new System.Drawing.Size(167, 125);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(17, 56);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnCancelar.Location = new System.Drawing.Point(17, 67);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 26);
+            this.btnCancelar.Size = new System.Drawing.Size(132, 41);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Salir";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(17, 19);
+            this.btnAceptar.Image = global::StockVentas.Properties.Resources.aceptar;
+            this.btnAceptar.Location = new System.Drawing.Point(17, 16);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(132, 26);
+            this.btnAceptar.Size = new System.Drawing.Size(132, 41);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -111,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 124);
+            this.ClientSize = new System.Drawing.Size(420, 150);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -252,30 +252,54 @@ namespace StockVentas
                 }
                 else
                 {
-                    if (txtDesde.Text != "")
+                    if (!string.IsNullOrEmpty(txtDesde.Text) || !string.IsNullOrEmpty(cmbTalleDesde.Text))
                     {
-                        if (rd1.Checked)
+                        if (rdNumerico.Checked)
                         {
-                            incrementar = 1;
+                            if (rd1.Checked)
+                            {
+                                incrementar = 1;
+                            }
+                            else
+                            {
+                                incrementar = 2;
+                            }
+                            for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
+                            {
+                                codigoTalle = i.ToString();
+                                if (codigoTalle.Length == 1)
+                                {
+                                    codigoTalle = "0" + codigoTalle;
+                                }
+                                idArticulo = codigo + "00" + codigoTalle;
+                                string descripcion = strDescripcionNueva + "T" + codigoTalle;
+                                entidad.IdArticulo = idArticulo;
+                                entidad.IdColor = 0;
+                                entidad.Talle = codigoTalle;
+                                entidad.Descripcion = descripcion;
+                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
+                            }
                         }
                         else
                         {
-                            incrementar = 2;
-                        }
-                        for (int i = Convert.ToInt32(txtDesde.Text); i <= Convert.ToInt32(txtHasta.Text); i += incrementar)
-                        {
-                            codigoTalle = i.ToString();
-                            if (codigoTalle.Length == 1)
+                            incrementar = 1;
+                            for (int i = Convert.ToInt32(cmbTalleDesde.SelectedValue); i <= Convert.ToInt32(cmbTalleHasta.SelectedValue); i += incrementar)
                             {
-                                codigoTalle = "0" + codigoTalle;
+                                codigoTalle = i.ToString();
+                                if (codigoTalle.Length == 1)
+                                {
+                                    codigoTalle = "0" + codigoTalle;
+                                }
+                                idArticulo = codigo + "00" + codigoTalle;
+                                string descripcionTalle = string.Empty;
+                                tallesAmericanos.TryGetValue(i, out descripcionTalle);
+                                string descripcion = strDescripcionNueva + descripcionTalle;
+                                entidad.IdArticulo = idArticulo;
+                                entidad.IdColor = 0;
+                                entidad.Talle = codigoTalle;
+                                entidad.Descripcion = descripcion;
+                                BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                             }
-                            idArticulo = codigo + "00" + codigoTalle;
-                            string descripcion = strDescripcionNueva + "T" + codigoTalle;
-                            entidad.IdArticulo = idArticulo;
-                            entidad.IdColor = 0;
-                            entidad.Talle = codigoTalle;
-                            entidad.Descripcion = descripcion;
-                            BL.ArticulosBLL.InsertarDT(tblArticulos, entidad);
                         }
                     }
                     else

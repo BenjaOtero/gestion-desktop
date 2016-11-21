@@ -61,14 +61,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cmbAlicuota = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpSistemaTalles = new System.Windows.Forms.GroupBox();
             this.rdAmericano = new System.Windows.Forms.RadioButton();
             this.rdNumerico = new System.Windows.Forms.RadioButton();
             this.cmbTalleDesde = new System.Windows.Forms.ComboBox();
             this.cmbTalleHasta = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.grpIncrementar.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpSistemaTalles.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbItem
@@ -91,31 +91,38 @@
             // 
             // btnProveedor
             // 
-            this.btnProveedor.Location = new System.Drawing.Point(16, 140);
+            this.btnProveedor.Image = global::StockVentas.Properties.Resources.provedor;
+            this.btnProveedor.Location = new System.Drawing.Point(16, 206);
             this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(129, 26);
-            this.btnProveedor.TabIndex = 7;
+            this.btnProveedor.Size = new System.Drawing.Size(158, 49);
+            this.btnProveedor.TabIndex = 3;
             this.btnProveedor.Text = "Agregar proveedor";
+            this.btnProveedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProveedor.UseVisualStyleBackColor = true;
             this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(16, 177);
+            this.btnSalir.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(16, 267);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(129, 26);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Size = new System.Drawing.Size(158, 49);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = " Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(16, 29);
+            this.btnGrabar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnGrabar.Location = new System.Drawing.Point(16, 23);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(129, 26);
+            this.btnGrabar.Size = new System.Drawing.Size(158, 49);
             this.btnGrabar.TabIndex = 0;
             this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
@@ -128,27 +135,31 @@
             this.groupBox2.Controls.Add(this.btnGrabar);
             this.groupBox2.Location = new System.Drawing.Point(439, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(160, 586);
+            this.groupBox2.Size = new System.Drawing.Size(191, 586);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(16, 103);
+            this.btnColor.Image = global::StockVentas.Properties.Resources.add_color;
+            this.btnColor.Location = new System.Drawing.Point(16, 145);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(129, 26);
-            this.btnColor.TabIndex = 3;
+            this.btnColor.Size = new System.Drawing.Size(158, 49);
+            this.btnColor.TabIndex = 2;
             this.btnColor.Text = "Agregar color";
+            this.btnColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // btnItem
             // 
-            this.btnItem.Location = new System.Drawing.Point(16, 66);
+            this.btnItem.Image = global::StockVentas.Properties.Resources.add;
+            this.btnItem.Location = new System.Drawing.Point(16, 84);
             this.btnItem.Name = "btnItem";
-            this.btnItem.Size = new System.Drawing.Size(129, 26);
-            this.btnItem.TabIndex = 2;
+            this.btnItem.Size = new System.Drawing.Size(158, 49);
+            this.btnItem.TabIndex = 1;
             this.btnItem.Text = "Agregar ítem";
+            this.btnItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnItem.UseVisualStyleBackColor = true;
             this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
             // 
@@ -231,7 +242,7 @@
             this.txtPublico.Location = new System.Drawing.Point(126, 412);
             this.txtPublico.Name = "txtPublico";
             this.txtPublico.Size = new System.Drawing.Size(301, 20);
-            this.txtPublico.TabIndex = 8;
+            this.txtPublico.TabIndex = 9;
             // 
             // label7
             // 
@@ -250,7 +261,7 @@
             this.txtCosto.Location = new System.Drawing.Point(126, 386);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(301, 20);
-            this.txtCosto.TabIndex = 7;
+            this.txtCosto.TabIndex = 8;
             // 
             // label8
             // 
@@ -268,7 +279,7 @@
             this.txtMayor.Location = new System.Drawing.Point(126, 438);
             this.txtMayor.Name = "txtMayor";
             this.txtMayor.Size = new System.Drawing.Size(302, 20);
-            this.txtMayor.TabIndex = 9;
+            this.txtMayor.TabIndex = 10;
             // 
             // label9
             // 
@@ -287,7 +298,7 @@
             this.cmbProveedor.Location = new System.Drawing.Point(126, 491);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(302, 21);
-            this.cmbProveedor.TabIndex = 11;
+            this.cmbProveedor.TabIndex = 12;
             // 
             // grpIncrementar
             // 
@@ -330,14 +341,14 @@
             this.txtDesde.Location = new System.Drawing.Point(126, 334);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(301, 20);
-            this.txtDesde.TabIndex = 5;
+            this.txtDesde.TabIndex = 6;
             // 
             // txtHasta
             // 
             this.txtHasta.Location = new System.Drawing.Point(126, 360);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(301, 20);
-            this.txtHasta.TabIndex = 6;
+            this.txtHasta.TabIndex = 7;
             // 
             // label10
             // 
@@ -383,7 +394,7 @@
             this.cmbAlicuota.Location = new System.Drawing.Point(126, 464);
             this.cmbAlicuota.Name = "cmbAlicuota";
             this.cmbAlicuota.Size = new System.Drawing.Size(301, 21);
-            this.cmbAlicuota.TabIndex = 10;
+            this.cmbAlicuota.TabIndex = 11;
             // 
             // label13
             // 
@@ -396,17 +407,17 @@
             this.label13.TabIndex = 3;
             this.label13.Text = "Alícuota iva";
             // 
-            // groupBox3
+            // grpSistemaTalles
             // 
-            this.groupBox3.Controls.Add(this.rdAmericano);
-            this.groupBox3.Controls.Add(this.rdNumerico);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox3.Location = new System.Drawing.Point(12, 261);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(417, 67);
-            this.groupBox3.TabIndex = 49;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sistema de talles";
+            this.grpSistemaTalles.Controls.Add(this.rdAmericano);
+            this.grpSistemaTalles.Controls.Add(this.rdNumerico);
+            this.grpSistemaTalles.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpSistemaTalles.Location = new System.Drawing.Point(12, 261);
+            this.grpSistemaTalles.Name = "grpSistemaTalles";
+            this.grpSistemaTalles.Size = new System.Drawing.Size(417, 67);
+            this.grpSistemaTalles.TabIndex = 5;
+            this.grpSistemaTalles.TabStop = false;
+            this.grpSistemaTalles.Text = "Sistema de talles";
             // 
             // rdAmericano
             // 
@@ -456,10 +467,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 597);
+            this.ClientSize = new System.Drawing.Size(642, 597);
             this.Controls.Add(this.cmbTalleHasta);
             this.Controls.Add(this.cmbTalleDesde);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.grpSistemaTalles);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDescripcionWeb);
             this.Controls.Add(this.txtHasta);
@@ -494,8 +505,8 @@
             this.groupBox2.ResumeLayout(false);
             this.grpIncrementar.ResumeLayout(false);
             this.grpIncrementar.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpSistemaTalles.ResumeLayout(false);
+            this.grpSistemaTalles.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,7 +547,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cmbAlicuota;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpSistemaTalles;
         private System.Windows.Forms.RadioButton rdAmericano;
         private System.Windows.Forms.RadioButton rdNumerico;
         private System.Windows.Forms.ComboBox cmbTalleDesde;

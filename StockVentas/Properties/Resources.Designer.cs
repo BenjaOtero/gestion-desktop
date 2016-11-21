@@ -83,6 +83,16 @@ namespace StockVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_color {
+            get {
+                object obj = ResourceManager.GetObject("add_color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agrupar {
             get {
                 object obj = ResourceManager.GetObject("agrupar", resourceCulture);
@@ -326,6 +336,16 @@ namespace StockVentas.Properties {
         internal static System.Drawing.Bitmap progress_bar32 {
             get {
                 object obj = ResourceManager.GetObject("progress_bar32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap provedor {
+            get {
+                object obj = ResourceManager.GetObject("provedor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

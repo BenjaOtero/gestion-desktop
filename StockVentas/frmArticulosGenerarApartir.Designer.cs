@@ -63,36 +63,43 @@
             this.groupBox2.Location = new System.Drawing.Point(365, 8);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(156, 389);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(13, 98);
+            this.btnSalir.Image = global::StockVentas.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(13, 150);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(130, 26);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Size = new System.Drawing.Size(130, 54);
+            this.btnSalir.TabIndex = 2;
+            this.btnSalir.Text = " Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(13, 59);
+            this.btnColor.Image = global::StockVentas.Properties.Resources.add_color;
+            this.btnColor.Location = new System.Drawing.Point(13, 87);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(130, 26);
-            this.btnColor.TabIndex = 3;
+            this.btnColor.Size = new System.Drawing.Size(130, 54);
+            this.btnColor.TabIndex = 1;
             this.btnColor.Text = "Agregar color";
+            this.btnColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(13, 20);
+            this.btnGrabar.Image = global::StockVentas.Properties.Resources.grabar;
+            this.btnGrabar.Location = new System.Drawing.Point(13, 24);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(130, 26);
+            this.btnGrabar.Size = new System.Drawing.Size(130, 54);
             this.btnGrabar.TabIndex = 0;
             this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
@@ -101,14 +108,14 @@
             this.txtHasta.Location = new System.Drawing.Point(92, 356);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(226, 20);
-            this.txtHasta.TabIndex = 4;
+            this.txtHasta.TabIndex = 6;
             // 
             // txtDesde
             // 
             this.txtDesde.Location = new System.Drawing.Point(92, 330);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(226, 20);
-            this.txtDesde.TabIndex = 3;
+            this.txtDesde.TabIndex = 5;
             // 
             // grpIncrementar
             // 
@@ -118,7 +125,7 @@
             this.grpIncrementar.Location = new System.Drawing.Point(18, 259);
             this.grpIncrementar.Name = "grpIncrementar";
             this.grpIncrementar.Size = new System.Drawing.Size(301, 65);
-            this.grpIncrementar.TabIndex = 60;
+            this.grpIncrementar.TabIndex = 4;
             this.grpIncrementar.TabStop = false;
             this.grpIncrementar.Text = "Valor a incrementar por talle";
             // 
@@ -216,7 +223,7 @@
             this.groupBox3.Location = new System.Drawing.Point(19, 186);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(300, 67);
-            this.groupBox3.TabIndex = 64;
+            this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sistema de talles";
             // 
@@ -227,7 +234,7 @@
             this.rdAmericano.Location = new System.Drawing.Point(7, 43);
             this.rdAmericano.Name = "rdAmericano";
             this.rdAmericano.Size = new System.Drawing.Size(75, 17);
-            this.rdAmericano.TabIndex = 0;
+            this.rdAmericano.TabIndex = 1;
             this.rdAmericano.Text = "Americano";
             this.rdAmericano.UseVisualStyleBackColor = true;
             this.rdAmericano.Click += new System.EventHandler(this.rdAmericano_Click);
@@ -252,7 +259,7 @@
             this.cmbTalleHasta.Location = new System.Drawing.Point(17, 108);
             this.cmbTalleHasta.Name = "cmbTalleHasta";
             this.cmbTalleHasta.Size = new System.Drawing.Size(70, 21);
-            this.cmbTalleHasta.TabIndex = 65;
+            this.cmbTalleHasta.TabIndex = 6;
             this.cmbTalleHasta.Visible = false;
             // 
             // cmbTalleDesde
@@ -261,7 +268,7 @@
             this.cmbTalleDesde.Location = new System.Drawing.Point(17, 76);
             this.cmbTalleDesde.Name = "cmbTalleDesde";
             this.cmbTalleDesde.Size = new System.Drawing.Size(70, 21);
-            this.cmbTalleDesde.TabIndex = 66;
+            this.cmbTalleDesde.TabIndex = 5;
             this.cmbTalleDesde.Visible = false;
             // 
             // groupBox1
@@ -281,7 +288,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(339, 389);
-            this.groupBox1.TabIndex = 67;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // frmArticulosGenerarApartir
