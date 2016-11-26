@@ -6,6 +6,8 @@ using System.Net.NetworkInformation;
 using System.ServiceProcess;
 using System.Configuration;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace BL
 {
@@ -34,6 +36,7 @@ namespace BL
 
     public class UtilVarios
     {
+
         public static List<string> GetCredentialsFTP()
         {
             string connectionString;
