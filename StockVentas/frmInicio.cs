@@ -5,12 +5,17 @@ using System.Windows.Forms;
 using System.Net;
 using BL;
 using DAL;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace StockVentas
 {
 
     public partial class frmInicio : Form
     {
+        // dll para instalar fuente codigo barras
+        [DllImport("gdi32.dll", EntryPoint = "AddFontResourceW", SetLastError = true)]
+        public static extern int AddFontResource([In][MarshalAs(UnmanagedType.LPWStr)] string lpFileName);
         BackgroundWorker bckIniciarComponetes;
         Label label2;
         Label label1;
@@ -86,6 +91,15 @@ namespace StockVentas
               //  UtilDB.InstalarMySQL();
                 label1.Text = "Configurando servidor de base de datos . . .";
                 UtilDB.ConfigurarMySQL();
+              /*  string fontsfolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Fonts);
+                if (!File.Exists(fontsfolder + @"\IDAutomationHC39M.ttf"))
+                {
+                    File.Copy(Application.StartupPath + @"\Informes\IDAutomationHC39M.ttf", fontsfolder + @"\IDAutomationHC39M.ttf");
+                    AddFontResource(Application.StartupPath + @"\Informes\IDAutomationHC39M.ttf");
+                    Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
+                    key.SetValue("IDAutomationHC39M", "IDAutomationHC39M.ttf");
+                    key.Close();
+                }*/
             }
             label1.Text = "Obteniendo datos del servidor . . .";
         reiniciar:

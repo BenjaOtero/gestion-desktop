@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
     <PublishUrlHistory>C:\Trend\Gestion-desktop\trunk\ClickOnce\|ftp://127.0.0.1:5050/|N:\ClickOnce\|http://trendsistemas.com/public_htm./downloads/|ftp://trendsistemas.com/public_htm./downloads/</PublishUrlHistory>
-    <InstallUrlHistory>http://trendsistemas.com/downloads/|http://127.0.0.1/ftp-root/|http://trendsistemas.com/public_html/downloads/|http://trendsistemas.com/public_htm./downloads/|https://trendsistemas.com/downloads/</InstallUrlHistory>
+    <InstallUrlHistory>\\Vboxsvr\c_drive\Trend\Gestion-desktop\trunk\ClickOnce\|http://trendsistemas.com/downloads/|http://127.0.0.1/ftp-root/|http://trendsistemas.com/public_html/downloads/|http://trendsistemas.com/public_htm./downloads/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />

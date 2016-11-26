@@ -60,6 +60,10 @@
           <DataField>DestinoMSTKD</DataField>
           <rd:TypeName>System.SByte</rd:TypeName>
         </Field>
+        <Field Name="ordenar">
+          <DataField>ordenar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>Dataset_informes</DataSourceName>
@@ -364,7 +368,7 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!DescripcionART.Value</Value>
+                  <Value>=Fields!ordenar.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
@@ -408,11 +412,6 @@
                       <GroupExpression>=Fields!IdArticuloMSTKD.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!DescripcionART.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
                     <Size>0.98425in</Size>
                     <CellContents>
@@ -453,11 +452,6 @@
                           <GroupExpression>=Fields!DescripcionART.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!DescripcionART.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
                         <Size>4.92462in</Size>
                         <CellContents>
@@ -576,14 +570,6 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <SortExpressions>
-          <SortExpression>
-            <Value>=Fields!DescripcionART.Value</Value>
-          </SortExpression>
-          <SortExpression>
-            <Value>=Fields!IdArticuloMSTKD.Value</Value>
-          </SortExpression>
-        </SortExpressions>
         <Height>1.2cm</Height>
         <Width>25.4cm</Width>
         <Style>
@@ -593,7 +579,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>0.47244in</Height>
     <Style />
   </Body>
   <Width>10in</Width>
@@ -601,7 +587,6 @@
     <PageHeader>
       <Height>2cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Textbox Name="txtFecha">
           <CanGrow>true</CanGrow>
