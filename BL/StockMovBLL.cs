@@ -49,6 +49,7 @@ namespace BL
             StockMov.AcceptChanges();
             StockMovDetalle = dt.Tables[0].Copy();
             StockMovDetalle.TableName = "StockMovDetalle";
+            StockMovDetalle.Columns.Remove("OrdenarMSTK");
             StockMovDetalle.Columns.Remove("IdMovMSTK");
             StockMovDetalle.Columns.Remove("OrigenMSTK");
             StockMovDetalle.Columns.Remove("DestinoMSTK");

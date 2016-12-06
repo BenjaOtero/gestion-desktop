@@ -76,6 +76,8 @@ namespace StockVentas
             bindingSource1.DataMember = dsStockMov.Tables[0].ToString();
             bindingNavigator1.BindingSource = bindingSource1;
             dgvStockMov.DataSource = bindingSource1;
+            dgvStockMov.Sort(this.dgvStockMov.Columns["OrdenarMSTK"], System.ComponentModel.ListSortDirection.Ascending);
+            dgvStockMov.Columns["OrdenarMSTK"].Visible = false;
             dgvStockMov.Columns["CompensaMSTK"].Visible = false;
             dgvStockMov.Columns["OrigenMSTK"].Visible = false;
             dgvStockMov.Columns["DestinoMSTK"].Visible = false;
@@ -93,7 +95,8 @@ namespace StockVentas
             bindingSource2.Sort = "ordenar ASC";
             bindingNavigator2.BindingSource = bindingSource2;
             dgvStockDet.DataSource = bindingSource2;
-            dgvStockDet.Columns["ordenar"].Visible = false;
+            bindingSource2.Sort = "ordenar ASC";
+        //    dgvStockDet.Columns["ordenar"].Visible = false;
             dgvStockDet.Columns["IdMovMSTKD"].Visible = false;
             dgvStockDet.Columns["FechaMSTK"].Visible = false;
             dgvStockDet.Columns["CompensaMSTKD"].Visible = false;
