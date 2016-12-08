@@ -105,6 +105,7 @@ namespace StockVentas
                 viewStockMov.RowFilter = "IdMovMSTK = '" + PK + "'";
                 rowView = viewStockMov[0];
                 viewStockMovDetalle.RowFilter = "IdMovMSTKD = '" + PK + "'";
+                viewStockMovDetalle.Sort = "ordenar ASC";
                 lblNro.Text = viewStockMov[0]["IdMovMSTK"].ToString();
                 cmbOrigen.Enabled = false;
                 cmbDestino.Enabled = false;
@@ -650,6 +651,10 @@ namespace StockVentas
         {
             return;
         }
-        
-     }
+
+        private void dgvDatos_Leave(object sender, EventArgs e)
+        {
+            dgvDatos.EndEdit();
+        }
+    }
 }

@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3ryruQ9MeZDHPDg6grYfPlTnujM=</dsig:DigestValue>
+        <dsig:DigestValue>vOp4+584oxbM1ge3CP/te+Dz66Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>M4mHs9TTG3Kp4xTwyNXd4BxYnoE=</dsig:DigestValue>
+        <dsig:DigestValue>rtQjEo315gd5xa6o384ACfYyvZ0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GPgPbZrO3Xg20Fhi7Xg7CC9kRTg=</dsig:DigestValue>
+        <dsig:DigestValue>N3abG9nUNlLbyMxRQdWjFNsQwfw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -139,14 +139,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="969616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="965520">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZuKGuCidGcElMThFP1jD6C8kMx0=</dsig:DigestValue>
+        <dsig:DigestValue>b7UM8Y+yWb2Ek2pYVyrcSjy+RNo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -213,13 +213,13 @@
       <dsig:DigestValue>I6T2XaAzQPe0mx2xjQgEbaUrpCQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Informes\StockMov.rdlc" size="31315">
+  <file name="Informes\StockMov.rdlc" size="31359">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9Jy6TB17+7404llwP40AuyaHniI=</dsig:DigestValue>
+      <dsig:DigestValue>EsdU0pVUIClZcgR9S9ZXaVEKD/g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Informes\VentasDetalle.rdlc" size="35275">

@@ -106,7 +106,8 @@ namespace StockVentas
             dgvStockDet.Columns["IdArticuloMSTKD"].HeaderText = "Artículo";
             dgvStockDet.Columns["DescripcionART"].HeaderText = "Descripción";
             dgvStockDet.Columns["CantidadMSTKD"].HeaderText = "Cantidad";
-            dgvStockDet.ReadOnly = true;
+            dgvStockMov.Focus();
+            dgvStockMov.Rows[0].Selected = true;
             Cursor.Current = Cursors.Arrow;
         }
 

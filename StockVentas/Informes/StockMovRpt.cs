@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Reporting.WinForms;
+using System.Drawing.Printing;
 
 namespace StockVentas
 {
@@ -69,10 +70,14 @@ namespace StockVentas
             this.reportViewer1.LocalReport.ReportPath = path;
             
             
-            reportViewer1.LocalReport.DataSources.Add(
-            new ReportDataSource("DataSet1", view));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", view));
+            System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
+            pg.Margins = new System.Drawing.Printing.Margins(19, 19, 19, 19); //centesimas de pulgada
+            pg.PaperSize = new PaperSize("A4", 827, 1169); // 8.27 in x 11.69 in   19.685in
+            pg.Landscape = true;
             //      this.reportViewer1.LocalReport.SetParameters(parameters);
-            this.reportViewer1.RefreshReport();
+            reportViewer1.RefreshReport();
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
         }
 
     }

@@ -550,9 +550,9 @@ namespace StockVentas
                     }
                     if (nuevaFila != null)
                     {
-                        nuevaFila[3] = string.Empty;
+                      /*  nuevaFila[3] = string.Empty;
                         nuevaFila[4] = string.Empty;
-                        nuevaFila[5] = string.Empty;
+                        nuevaFila[5] = string.Empty;*/
                         cfilas.Add(nuevaFila);
                     }
                     tblEntradasDetalle.Rows.RemoveAt(0);
@@ -680,6 +680,7 @@ namespace StockVentas
         private bool ValidarGrid()
         {
             bool validado = true;
+            dgvDatos.EndEdit();
             foreach (DataGridViewRow row in dgvDatos.Rows)
             {
                 if (!row.IsNewRow)
