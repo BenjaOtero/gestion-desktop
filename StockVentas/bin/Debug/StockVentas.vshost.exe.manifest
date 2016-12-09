@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>vOp4+584oxbM1ge3CP/te+Dz66Y=</dsig:DigestValue>
+        <dsig:DigestValue>RcAHxd8mEzRxsGqqhupNgy8poBk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rtQjEo315gd5xa6o384ACfYyvZ0=</dsig:DigestValue>
+        <dsig:DigestValue>e7hYpgRvVupib30iSK6u4AQXCC8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>N3abG9nUNlLbyMxRQdWjFNsQwfw=</dsig:DigestValue>
+        <dsig:DigestValue>KlKQG+kdguzLO4SvHAx/0ZBOdoA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -139,14 +139,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="965520">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="965008">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>b7UM8Y+yWb2Ek2pYVyrcSjy+RNo=</dsig:DigestValue>
+        <dsig:DigestValue>JoLYs6Fs+EXVpJ1ksx9AVQDysDE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -276,13 +276,13 @@
       <dsig:DigestValue>dDlYPBxcgfKmAZgPFH6HL2XgcVk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Mysql\ncsoftwa_re.sql" size="164627">
+  <file name="Mysql\ncsoftwa_re.sql" size="2739855">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>OrEgX+BeH5glxXR9JeaOpNc6mXg=</dsig:DigestValue>
+      <dsig:DigestValue>1fJHOGjk1Tia8PCmo3k7T7Yk0f0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Mysql\ncsoftwa_re_install.sql" size="165241">

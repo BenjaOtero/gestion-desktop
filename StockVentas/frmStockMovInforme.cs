@@ -107,8 +107,15 @@ namespace StockVentas
             dgvStockDet.Columns["DescripcionART"].HeaderText = "Descripción";
             dgvStockDet.Columns["CantidadMSTKD"].HeaderText = "Cantidad";
             dgvStockMov.Focus();
-            dgvStockMov.Rows[0].Selected = true;
-            Cursor.Current = Cursors.Arrow;
+            try
+            {
+                dgvStockMov.Rows[0].Selected = true;
+                Cursor.Current = Cursors.Arrow;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
         }
 
         private void btnModifcar_Click(object sender, EventArgs e)
@@ -172,13 +179,9 @@ namespace StockVentas
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            if (dsStockMov.Tables[0].Rows.Count == 0) return;
             frmStockMovEntradasEtiqInter frm = new frmStockMovEntradasEtiqInter();
             frm.ShowDialog(this);
             SendToBack();
@@ -257,9 +260,9 @@ namespace StockVentas
                 }
                 if (nuevaFila != null)
                 {
-                    nuevaFila[3] = string.Empty;
+                   /* nuevaFila[3] = string.Empty;
                     nuevaFila[4] = string.Empty;
-                    nuevaFila[5] = string.Empty;
+                    nuevaFila[5] = string.Empty;*/
                     cfilas.Add(nuevaFila);
                 }
                 tblEntradasDetalle.Rows.RemoveAt(0);
