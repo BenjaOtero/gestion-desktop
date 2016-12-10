@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="StockVentas.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="StockVentas.exe" version="1.1.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="icono_app.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RcAHxd8mEzRxsGqqhupNgy8poBk=</dsig:DigestValue>
+        <dsig:DigestValue>oltninUchXTzy2OIh3GyfXq2yak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>e7hYpgRvVupib30iSK6u4AQXCC8=</dsig:DigestValue>
+        <dsig:DigestValue>Vbh2/W1PIeIvM+2SmTKWk+Y4u4Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KlKQG+kdguzLO4SvHAx/0ZBOdoA=</dsig:DigestValue>
+        <dsig:DigestValue>cnbe7iiuUu261mRPsTf/9jyeCi8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -139,14 +139,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="965008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="966032">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JoLYs6Fs+EXVpJ1ksx9AVQDysDE=</dsig:DigestValue>
+        <dsig:DigestValue>H6hb1GfDvPdhV4bUQlEUpfC7VLM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -168,13 +168,13 @@
       <dsig:DigestValue>v4wJolYyj4HJyy9YkA+xiDGLx7s=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Informes\Etiquetasx2.rdlc" size="6914">
+  <file name="Informes\Etiquetasx2.rdlc" size="6928">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>SQHotGn9y7kx367LjHwUjAx+dzg=</dsig:DigestValue>
+      <dsig:DigestValue>zL33DKmeMpeeMCisXjwvo/RjITY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Informes\IDAutomationHC39M.ttf" size="41732">
@@ -276,13 +276,13 @@
       <dsig:DigestValue>dDlYPBxcgfKmAZgPFH6HL2XgcVk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Mysql\ncsoftwa_re.sql" size="2739855">
+  <file name="Mysql\ncsoftwa_re.sql" size="2741215">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1fJHOGjk1Tia8PCmo3k7T7Yk0f0=</dsig:DigestValue>
+      <dsig:DigestValue>5d62f/DtzZTElDrw215R+SthjiQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Mysql\ncsoftwa_re_install.sql" size="165241">

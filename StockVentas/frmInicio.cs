@@ -16,6 +16,7 @@ namespace StockVentas
         // dll para instalar fuente codigo barras
         [DllImport("gdi32.dll", EntryPoint = "AddFontResourceW", SetLastError = true)]
         public static extern int AddFontResource([In][MarshalAs(UnmanagedType.LPWStr)] string lpFileName);
+
         BackgroundWorker bckIniciarComponetes;
         Label label2;
         Label label1;
@@ -83,15 +84,13 @@ namespace StockVentas
 
         private void bckIniciarComponetes_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (!UtilVarios.ExisteServicio("MySQL"))
+            try
             {
-                this.pictureBox2.Location = new System.Drawing.Point(29, 55);
-                label2.Text = "Iniciando el sistema por primera vez." + '\r' + "Este proceso puede tomar unos minutos.";
-             //   label1.Text = "Instalando servidor de base de datos . . .";
-              //  UtilDB.InstalarMySQL();
-                label1.Text = "Configurando servidor de base de datos . . .";
-                UtilDB.ConfigurarMySQL();
-              /*  string fontsfolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Fonts);
+                string fontsfolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Fonts);
+                if (File.Exists(fontsfolder + @"\IDAutomationHC39M.ttf"))
+                {
+                    File.Delete(fontsfolder + @"\IDAutomationHC39M.ttf");
+                }
                 if (!File.Exists(fontsfolder + @"\IDAutomationHC39M.ttf"))
                 {
                     File.Copy(Application.StartupPath + @"\Informes\IDAutomationHC39M.ttf", fontsfolder + @"\IDAutomationHC39M.ttf");
@@ -99,7 +98,41 @@ namespace StockVentas
                     Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
                     key.SetValue("IDAutomationHC39M", "IDAutomationHC39M.ttf");
                     key.Close();
-                }*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (!UtilVarios.ExisteServicio("MySQL"))
+            {
+                this.pictureBox2.Location = new System.Drawing.Point(29, 55);
+                label2.Text = "Iniciando el sistema por primera vez." + '\r' + "Este proceso puede tomar unos minutos.";
+                label1.Text = "Configurando servidor de base de datos . . .";
+                UtilDB.ConfigurarMySQL();
+                try
+                {
+                    string fontsfolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Fonts);
+                    if (File.Exists(fontsfolder + @"\IDAutomationHC39M.ttf"))
+                    {
+                        File.Delete(fontsfolder + @"\IDAutomationHC39M.ttf");
+                    }
+                    if (!File.Exists(fontsfolder + @"\IDAutomationHC39M.ttf"))
+                    {
+                        File.Copy(Application.StartupPath + @"\Informes\IDAutomationHC39M.ttf", fontsfolder + @"\IDAutomationHC39M.ttf");
+                        AddFontResource(Application.StartupPath + @"\Informes\IDAutomationHC39M.ttf");
+                        Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
+                        key.SetValue("IDAutomationHC39M", "IDAutomationHC39M.ttf");
+                        key.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                MessageBox.Show("Reiniciar");
+
             }
             label1.Text = "Obteniendo datos del servidor . . .";
         reiniciar:
