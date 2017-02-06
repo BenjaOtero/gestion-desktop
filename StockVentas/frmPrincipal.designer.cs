@@ -98,10 +98,14 @@
             this.exportarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarDatosActualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pruebasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaRemotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ecommerceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mercadoLibreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -298,12 +302,13 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem13,
             this.toolStripMenuItem14,
+            this.ecommerceToolStripMenuItem,
             this.toolStripMenuItem19,
             this.mantenimientoToolStripMenuItem1,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(537, 74);
+            this.menuStrip1.Size = new System.Drawing.Size(774, 74);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -633,7 +638,8 @@
             this.restaurarBaseDeDatosToolStripMenuItem,
             this.exportarDatosToolStripMenuItem,
             this.importarDatosToolStripMenuItem,
-            this.importarDatosActualesToolStripMenuItem});
+            this.importarDatosActualesToolStripMenuItem,
+            this.pruebasToolStripMenuItem});
             this.mantenimientoToolStripMenuItem1.Image = global::StockVentas.Properties.Resources.mantenimiento1;
             this.mantenimientoToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mantenimientoToolStripMenuItem1.Name = "mantenimientoToolStripMenuItem1";
@@ -677,6 +683,13 @@
             this.importarDatosActualesToolStripMenuItem.Text = "Importar datos de hoy";
             this.importarDatosActualesToolStripMenuItem.Click += new System.EventHandler(this.importarDatosActualesToolStripMenuItem_Click);
             // 
+            // pruebasToolStripMenuItem
+            // 
+            this.pruebasToolStripMenuItem.Name = "pruebasToolStripMenuItem";
+            this.pruebasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.pruebasToolStripMenuItem.Text = "Pruebas";
+            this.pruebasToolStripMenuItem.Click += new System.EventHandler(this.pruebasToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -710,13 +723,36 @@
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de . . .";
             // 
+            // ecommerceToolStripMenuItem
+            // 
+            this.ecommerceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mercadoLibreToolStripMenuItem});
+            this.ecommerceToolStripMenuItem.Name = "ecommerceToolStripMenuItem";
+            this.ecommerceToolStripMenuItem.Size = new System.Drawing.Size(77, 70);
+            this.ecommerceToolStripMenuItem.Text = "E-commerce";
+            // 
+            // mercadoLibreToolStripMenuItem
+            // 
+            this.mercadoLibreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.publicarToolStripMenuItem});
+            this.mercadoLibreToolStripMenuItem.Name = "mercadoLibreToolStripMenuItem";
+            this.mercadoLibreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mercadoLibreToolStripMenuItem.Text = "Mercado Libre";
+            // 
+            // publicarToolStripMenuItem
+            // 
+            this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.publicarToolStripMenuItem.Text = "Publicar";
+            this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(537, 306);
+            this.ClientSize = new System.Drawing.Size(774, 306);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "frmPrincipal";
@@ -806,6 +842,10 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem asistenciaRemotaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pruebasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ecommerceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mercadoLibreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem publicarToolStripMenuItem;
     }
 }
 

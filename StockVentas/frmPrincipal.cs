@@ -470,6 +470,18 @@ namespace StockVentas
             System.Windows.Forms.Help.ShowHelp(this, Application.StartupPath + @"\Help\TrendGestion.chm");
         }
 
+        private void pruebasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPruebas pruebas = new frmPruebas();
+            pruebas.Show();
+        }
+
+        private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mercado_Libre.frmPublicar frm = new Mercado_Libre.frmPublicar();
+
+        }
+
         private void restaurarBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string fileName;

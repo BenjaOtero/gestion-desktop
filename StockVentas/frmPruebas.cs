@@ -102,34 +102,37 @@ namespace StockVentas
             foreach (DataRow rowPreciosNuevos in tblPrecioNuevos.Rows)
             {
                 string articulo = rowPreciosNuevos["Articulo"].ToString();
-                if(!string.IsNullOrEmpty(articulo))
+                if (!string.IsNullOrEmpty(articulo))
                 {
                     if (articulo.Length == 8)
                         articulo = "00" + articulo;
                     if (articulo.Length == 9)
                         articulo = "0" + articulo;
-                  //  articulo = rowPreciosNuevos["Articulo"].ToString().Substring(0, rowPreciosNuevos["Articulo"].ToString().Length - 4);
+                    //  articulo = rowPreciosNuevos["Articulo"].ToString().Substring(0, rowPreciosNuevos["Articulo"].ToString().Length - 4);
                     articulo = articulo.Substring(0, articulo.Length - 4);
                     DataRow[] foundRow = tblArticulos.Select("IdArticuloART LIKE '" + articulo + "*'");
                     foreach (DataRow rowArticulos in foundRow)
                     {
-                        if (!string.IsNullOrEmpty(rowPreciosNuevos["Makro"].ToString()) && !string.IsNullOrEmpty(rowPreciosNuevos["Jesus"].ToString()))
-                        {
-                            rowArticulos["PrecioPublicoART"] = rowPreciosNuevos["Makro"];
-                            rowArticulos["PrecioMayorART"] = rowPreciosNuevos["Jesus"];
-                        }
-
-                    }                
+                        rowArticulos["PrecioPublicoART"] = rowPreciosNuevos["Liquidacion"];
+                        rowArticulos["PrecioMayorART"] = rowPreciosNuevos["Liquidacion"];
+                    }
+                    /*   foreach (DataRow rowArticulos in foundRow)
+                       {
+                           if (!string.IsNullOrEmpty(rowPreciosNuevos["Makro"].ToString()) && !string.IsNullOrEmpty(rowPreciosNuevos["Jesus"].ToString()))
+                           {
+                               rowArticulos["PrecioPublicoART"] = rowPreciosNuevos["Makro"];
+                               rowArticulos["PrecioMayorART"] = rowPreciosNuevos["Jesus"];
+                           }
+                       }*/
                 }
             }
             if (tblArticulos.GetChanges() != null)
             {
-                frmProgress progreso = new frmProgress(tblArticulos, "frmArticulosGenerar", "grabar");
+                StockVentas.frmProgress progreso = new StockVentas.frmProgress(tblArticulos, "frmArticulosGenerar", "grabar");
                 progreso.ShowDialog();
             }
             Cursor.Current = Cursors.Arrow;
         }
-
         private void btnCompararStock_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -208,7 +211,7 @@ namespace StockVentas
 
         private void btnLeftBottom_Click(object sender, EventArgs e)
         {
-            DatosBLL.GetDataPOS();
+
         }
 
         private void button3_Click(object sender, EventArgs e)

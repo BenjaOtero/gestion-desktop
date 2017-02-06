@@ -161,7 +161,7 @@
             this.btnArticulos.Size = new System.Drawing.Size(193, 40);
             this.btnArticulos.TabIndex = 2;
             this.btnArticulos.Text = "Articulos";
-            this.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;            
+            this.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnArticulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnArticulos_Click);
@@ -189,6 +189,7 @@
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // bindingNavigator1
             // 
