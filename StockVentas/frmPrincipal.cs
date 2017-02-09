@@ -479,6 +479,7 @@ namespace StockVentas
         private void publicarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Mercado_Libre.frmPublicar frm = new Mercado_Libre.frmPublicar();
+            frm.Show();
 
         }
 
