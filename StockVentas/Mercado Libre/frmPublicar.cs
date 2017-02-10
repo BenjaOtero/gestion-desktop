@@ -65,16 +65,75 @@ namespace StockVentas.Mercado_Libre
 
         private void lstCategories_DoubleClick(object sender, EventArgs e)
         {
-            GetSubcategorias();
+            GetSubcategorias1();
         }
 
-        async void GetSubcategorias()
+        private void lstSubcategorias1_DoubleClick(object sender, EventArgs e)
+        {
+            GetSubcategorias2();
+        }
+
+        private void lstSubcategorias2_DoubleClick(object sender, EventArgs e)
+        {
+            GetSubcategorias3();
+        }
+
+        private void lstSubcategorias3_DoubleClick(object sender, EventArgs e)
+        {
+            GetSubcategorias4();
+        }
+
+        private void lstSubcategorias4_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        async void GetSubcategorias1()
         {
             var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstCategoriasRopa.SelectedValue.ToString());
 
-            lstSubcategorias.DataSource = childrens.children_categories.ToArray();
-            lstSubcategorias.ValueMember = "id";
-            lstSubcategorias.DisplayMember = "name";
+            lstSubcategorias1.DataSource = childrens.children_categories.ToArray();
+            lstSubcategorias1.ValueMember = "id";
+            lstSubcategorias1.DisplayMember = "name";
+        }
+
+        async void GetSubcategorias2()
+        {
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias1.SelectedValue.ToString());
+
+            lstSubcategorias2.DataSource = childrens.children_categories.ToArray();
+            lstSubcategorias2.ValueMember = "id";
+            lstSubcategorias2.DisplayMember = "name";
+        }
+
+        async void GetSubcategorias3()
+        {
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias2.SelectedValue.ToString());
+            if (childrens.children_categories.ToArray().Count() > 0)
+            {
+                lstSubcategorias3.DataSource = childrens.children_categories.ToArray();
+                lstSubcategorias3.ValueMember = "id";
+                lstSubcategorias3.DisplayMember = "name";
+            }
+            else
+            {
+
+            }
+        }
+
+        async void GetSubcategorias4()
+        {
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias3.SelectedValue.ToString());
+            if (childrens.children_categories.ToArray().Count() > 0)
+            {
+                lstSubcategorias4.DataSource = childrens.children_categories.ToArray();
+                lstSubcategorias4.ValueMember = "id";
+                lstSubcategorias4.DisplayMember = "name";
+            }
+            else
+            {
+
+            }
         }
 
         //por ahora no se usa el metodo porque el soft es solo para ropa y zapatos
@@ -126,7 +185,7 @@ namespace StockVentas.Mercado_Libre
 
         private void btnCreateJson_Click(object sender, EventArgs e)
         {
-            PublicarVariacion publicarVariacion = new PublicarVariacion();
+          /*  PublicarVariacion publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = "Articulo automatizado";
             publicarVariacion.category_id = "MLA370641";
             publicarVariacion.price = 10000;
@@ -157,9 +216,8 @@ namespace StockVentas.Mercado_Libre
                             price = 10
                           }
                       };
-            string json = new JavaScriptSerializer().Serialize(publicarVariacion);
+            string json = new JavaScriptSerializer().Serialize(publicarVariacion);*/
         }
-
 
     }
 
