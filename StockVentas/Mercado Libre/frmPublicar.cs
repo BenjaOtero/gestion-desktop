@@ -28,6 +28,13 @@ namespace StockVentas.Mercado_Libre
     {
         string mAuthURL;
         MeliApiService meli;
+        private DataTable tblArticulos;
+        DataGridView dgvDatos = new DataGridView();
+        BindingSource bindingSource1 = new BindingSource();
+        DataView viewDatos;
+        DataGridViewImageColumn imageColumn;
+        DataGridViewTextBoxColumn urlColumn;
+        Image emptyImage = global::StockVentas.Properties.Resources.seleccionar_imagen;
 
         public frmPublicar()
         {
@@ -36,7 +43,96 @@ namespace StockVentas.Mercado_Libre
 
         private void frmPublicar_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+            System.Drawing.Icon ico = Properties.Resources.icono_app;
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Location = new System.Drawing.Point(258, 290);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.Size = new System.Drawing.Size(895, 305);
+            this.dgvDatos.TabIndex = 21;
+            this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(dgvDatos_CellClick);
+            this.Controls.Add(this.dgvDatos);
+            tblArticulos = BL.ArticulosBLL.GetArticulosStock();
             meli = new MeliApiService();
+            var results = from DataRow myRow in tblArticulos.Rows
+                          where myRow.Field<decimal?>("Stock") != 0 && myRow.Field<decimal?>("Stock") != null
+                          select myRow;
+            DataTable tblStock = results.CopyToDataTable();
+            bindingSource1.DataSource = tblStock;
+            bindingSource1.Filter = "IdArticuloART LIKE '000000000'";
+            viewDatos = new DataView(tblStock);
+            viewDatos.RowFilter = "IdArticuloART LIKE '000000000'";
+            dgvDatos.DataSource = viewDatos;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvDatos.EditMode = DataGridViewEditMode.EditOnKeystroke;
+            dgvDatos.Columns["PrecioPublicoART"].Visible = false;
+            dgvDatos.Columns["PrecioMayorART"].Visible = false;
+            dgvDatos.Columns["PrecioCostoART"].HeaderText = "Costo";
+            dgvDatos.Columns["PrecioCostoART"].ReadOnly = true;
+            dgvDatos.Columns["IdArticuloART"].HeaderText = "Codigo";
+            dgvDatos.Columns["IdArticuloART"].ReadOnly = true;
+            dgvDatos.Columns["DescripcionART"].HeaderText = "Descripcion";
+            dgvDatos.Columns["DescripcionART"].ReadOnly = true;
+
+            DataGridViewCheckBoxColumn publicar = new DataGridViewCheckBoxColumn();
+            publicar.Name = "Publicar";
+            publicar.Width = 40;
+            publicar.HeaderText = "Publicar";
+            publicar.TrueValue = 1;
+            publicar.FalseValue = 0;
+            dgvDatos.Columns.Add(publicar);
+
+            imageColumn = new DataGridViewImageColumn();
+            imageColumn.Image = emptyImage;
+            imageColumn.Name = "Image_1";
+            imageColumn.HeaderText = "Imagen 1";
+            dgvDatos.Columns.Add(imageColumn);
+
+            imageColumn = new DataGridViewImageColumn();
+            imageColumn.Image = emptyImage;
+            imageColumn.Name = "Image_2";
+            imageColumn.HeaderText = "Imagen 2";
+            imageColumn.Visible = false;
+            dgvDatos.Columns.Add(imageColumn);
+
+            imageColumn = new DataGridViewImageColumn();
+            imageColumn.Image = emptyImage;
+            imageColumn.Name = "Image_3";
+            imageColumn.HeaderText = "Imagen 3";
+            imageColumn.Visible = false;
+            dgvDatos.Columns.Add(imageColumn);
+
+            imageColumn = new DataGridViewImageColumn();
+            imageColumn.Image = emptyImage;
+            imageColumn.Name = "Image_4";
+            imageColumn.HeaderText = "Imagen 4";
+            imageColumn.Visible = false;
+            dgvDatos.Columns.Add(imageColumn);
+
+            urlColumn = new DataGridViewTextBoxColumn();
+            urlColumn.Name = "url_1";
+            urlColumn.Visible = true;
+            dgvDatos.Columns.Add(urlColumn);
+
+            urlColumn = new DataGridViewTextBoxColumn();
+            urlColumn.Name = "url_2";
+            urlColumn.Visible = false;
+            dgvDatos.Columns.Add(urlColumn);
+
+            urlColumn = new DataGridViewTextBoxColumn();
+            urlColumn.Name = "url_3";
+            urlColumn.Visible = false;
+            dgvDatos.Columns.Add(urlColumn);
+
+            urlColumn = new DataGridViewTextBoxColumn();
+            urlColumn.Name = "url_4";
+            urlColumn.Visible = false;
+            dgvDatos.Columns.Add(urlColumn);
+
+            dgvDatos.RowTemplate.Height = 40;
+            txtParametros.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -117,7 +213,10 @@ namespace StockVentas.Mercado_Libre
             }
             else
             {
-
+                string categoria = lstSubcategorias2.SelectedValue.ToString();
+                frmPublicar_2 frm = new frmPublicar_2(meli, categoria, dgvDatos);
+                frm.Show();
+                Close();
             }
         }
 
@@ -132,7 +231,10 @@ namespace StockVentas.Mercado_Libre
             }
             else
             {
-
+                string categoria = lstSubcategorias3.SelectedValue.ToString();
+                frmPublicar_2 frm = new frmPublicar_2(meli, categoria, dgvDatos);
+                frm.Show();
+                Close();
             }
         }
 
@@ -185,7 +287,7 @@ namespace StockVentas.Mercado_Libre
 
         private void btnCreateJson_Click(object sender, EventArgs e)
         {
-          /*  PublicarVariacion publicarVariacion = new PublicarVariacion();
+            PublicarVariacion publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = "Articulo automatizado";
             publicarVariacion.category_id = "MLA370641";
             publicarVariacion.price = 10000;
@@ -193,7 +295,7 @@ namespace StockVentas.Mercado_Libre
             publicarVariacion.buying_mode = "buy_it_now";
             publicarVariacion.listing_type_id = "bronze";
             publicarVariacion.condition = "new";
-            publicarVariacion.description = "Item de test - no ofertar -";
+            publicarVariacion.description = "<div align =\"center\"><img src=\"https://trendsistemas.com/ml_images/descripcion_calzado_html.jpg\" alt=\"\" /></div>";
             publicarVariacion.variations = new List<variations>{
                             new variations() {
                             attribute_combinations = new List<attribute_combinations> {
@@ -216,9 +318,200 @@ namespace StockVentas.Mercado_Libre
                             price = 10
                           }
                       };
-            string json = new JavaScriptSerializer().Serialize(publicarVariacion);*/
+            string json = new JavaScriptSerializer().Serialize(publicarVariacion);
         }
 
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            frmPublicar_2 frm = new frmPublicar_2(meli, "categoria", dgvDatos);
+            frm.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (rdArticuloOrigen.Checked) viewDatos.RowFilter = "IdArticuloART LIKE '" + txtParametros.Text + "*'";
+            else viewDatos.RowFilter = "DescripcionART LIKE '" + txtParametros.Text + "*'";
+            if (viewDatos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros coincidentes", "Trend", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {             
+                dgvDatos.CurrentCell = dgvDatos.Rows[0].Cells["Stock"];
+            }
+        }
+
+        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            if (dgv == null)
+                return;
+            var imageCell = dgv[e.ColumnIndex, e.RowIndex] as DataGridViewImageCell;
+            if (imageCell == null)
+                return;
+            if (imageCell.Value == emptyImage)
+            {
+                if (e.RowIndex < 0) return;
+                if (e.ColumnIndex == dgvDatos.Columns["Image_1"].Index)
+                {
+                    OpenFileDialog opFilDlg = new OpenFileDialog();
+                    opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                    if (opFilDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        Image imagen = Image.FromFile(opFilDlg.FileName);
+                        Bitmap new_image = new Bitmap(60, 40);
+                        Graphics g = Graphics.FromImage((Image)new_image);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                        g.DrawImage(imagen, 0, 0, 60, 40);
+                        dgvDatos.CurrentRow.Cells["Image_1"].Value = new_image;
+                        dgvDatos.CurrentRow.Cells["url_1"].Value = opFilDlg.FileName;
+                        dgvDatos.Columns["Image_2"].Visible = true;
+                    }
+                }
+                if (e.ColumnIndex == dgvDatos.Columns["Image_2"].Index)
+                {
+                    OpenFileDialog opFilDlg = new OpenFileDialog();
+                    opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                    if (opFilDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        Image imagen = Image.FromFile(opFilDlg.FileName);
+                        Bitmap new_image = new Bitmap(60, 40);
+                        Graphics g = Graphics.FromImage((Image)new_image);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                        g.DrawImage(imagen, 0, 0, 60, 40);
+                        dgvDatos.CurrentRow.Cells["Image_2"].Value = new_image;
+                        dgvDatos.CurrentRow.Cells["url_2"].Value = opFilDlg.FileName;
+                        dgvDatos.Columns["Image_3"].Visible = true;
+                    }
+                }
+                if (e.ColumnIndex == dgvDatos.Columns["Image_3"].Index)
+                {
+                    OpenFileDialog opFilDlg = new OpenFileDialog();
+                    opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                    if (opFilDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        Image imagen = Image.FromFile(opFilDlg.FileName);
+                        Bitmap new_image = new Bitmap(60, 40);
+                        Graphics g = Graphics.FromImage((Image)new_image);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                        g.DrawImage(imagen, 0, 0, 60, 40);
+                        dgvDatos.CurrentRow.Cells["Image_3"].Value = new_image;
+                        dgvDatos.CurrentRow.Cells["url_3"].Value = opFilDlg.FileName;
+                        dgvDatos.Columns["Image_4"].Visible = true;
+                    }
+                }
+                if (e.ColumnIndex == dgvDatos.Columns["Image_4"].Index)
+                {
+                    OpenFileDialog opFilDlg = new OpenFileDialog();
+                    opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                    if (opFilDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        Image imagen = Image.FromFile(opFilDlg.FileName);
+                        Bitmap new_image = new Bitmap(60, 40);
+                        Graphics g = Graphics.FromImage((Image)new_image);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                        g.DrawImage(imagen, 0, 0, 60, 40);
+                        dgvDatos.CurrentRow.Cells["Image_4"].Value = new_image;
+                        dgvDatos.CurrentRow.Cells["url_4"].Value = opFilDlg.FileName;
+                    }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Para modificar la imagen presione 'ACEPTAR'. Para borrar la imagen actual presione 'CANCELAR'", "Trend",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    if (e.RowIndex < 0) return;
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_1"].Index)
+                    {
+                        OpenFileDialog opFilDlg = new OpenFileDialog();
+                        opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                        if (opFilDlg.ShowDialog() == DialogResult.OK)
+                        {
+                            Image imagen = Image.FromFile(opFilDlg.FileName);
+                            Bitmap new_image = new Bitmap(60, 40);
+                            Graphics g = Graphics.FromImage((Image)new_image);
+                            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                            g.DrawImage(imagen, 0, 0, 60, 40);
+                            dgvDatos.CurrentRow.Cells["Image_1"].Value = new_image;
+                            dgvDatos.CurrentRow.Cells["url_1"].Value = opFilDlg.FileName;
+                            dgvDatos.Columns["Image_2"].Visible = true;
+                        }
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_2"].Index)
+                    {
+                        OpenFileDialog opFilDlg = new OpenFileDialog();
+                        opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                        if (opFilDlg.ShowDialog() == DialogResult.OK)
+                        {
+                            Image imagen = Image.FromFile(opFilDlg.FileName);
+                            Bitmap new_image = new Bitmap(60, 40);
+                            Graphics g = Graphics.FromImage((Image)new_image);
+                            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                            g.DrawImage(imagen, 0, 0, 60, 40);
+                            dgvDatos.CurrentRow.Cells["Image_2"].Value = new_image;
+                            dgvDatos.CurrentRow.Cells["url_2"].Value = opFilDlg.FileName;
+                            dgvDatos.Columns["Image_3"].Visible = true;
+                        }
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_3"].Index)
+                    {
+                        OpenFileDialog opFilDlg = new OpenFileDialog();
+                        opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                        if (opFilDlg.ShowDialog() == DialogResult.OK)
+                        {
+                            Image imagen = Image.FromFile(opFilDlg.FileName);
+                            Bitmap new_image = new Bitmap(60, 40);
+                            Graphics g = Graphics.FromImage((Image)new_image);
+                            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                            g.DrawImage(imagen, 0, 0, 60, 40);
+                            dgvDatos.CurrentRow.Cells["Image_3"].Value = new_image;
+                            dgvDatos.CurrentRow.Cells["url_3"].Value = opFilDlg.FileName;
+                            dgvDatos.Columns["Image_4"].Visible = true;
+                        }
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_4"].Index)
+                    {
+                        OpenFileDialog opFilDlg = new OpenFileDialog();
+                        opFilDlg.Filter = "JPG (*.jpg)|*.jpg";
+                        if (opFilDlg.ShowDialog() == DialogResult.OK)
+                        {
+                            Image imagen = Image.FromFile(opFilDlg.FileName);
+                            Bitmap new_image = new Bitmap(60, 40);
+                            Graphics g = Graphics.FromImage((Image)new_image);
+                            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                            g.DrawImage(imagen, 0, 0, 60, 40);
+                            dgvDatos.CurrentRow.Cells["Image_4"].Value = new_image;
+                            dgvDatos.CurrentRow.Cells["url_4"].Value = opFilDlg.FileName;
+                        }
+                    }
+                }
+                else
+                {
+                    if (e.RowIndex < 0) return;
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_1"].Index)
+                    {
+                        dgvDatos.CurrentRow.Cells["Image_1"].Value = emptyImage;
+                        dgvDatos.CurrentRow.Cells["url_1"].Value = null;
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_2"].Index)
+                    {
+                        dgvDatos.CurrentRow.Cells["Image_2"].Value = emptyImage;
+                        dgvDatos.CurrentRow.Cells["url_2"].Value = null;
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_3"].Index)
+                    {
+                        dgvDatos.CurrentRow.Cells["Image_3"].Value = emptyImage;
+                        dgvDatos.CurrentRow.Cells["url_3"].Value = null;
+                    }
+                    if (e.ColumnIndex == dgvDatos.Columns["Image_4"].Index)
+                    {
+                        dgvDatos.CurrentRow.Cells["Image_4"].Value = emptyImage;
+                        dgvDatos.CurrentRow.Cells["url_4"].Value = null;
+                    }
+                }
+            }
+        }
     }
 
     /// <Clases>

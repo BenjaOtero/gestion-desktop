@@ -77,6 +77,9 @@
             this.movimientosDeEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ecommerceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mercadoLibreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.fondosDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,9 +106,6 @@
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaRemotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ecommerceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mercadoLibreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.publicarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -508,6 +508,33 @@
             this.toolStripMenuItem16.Text = "Fondo de caja";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.fondoDeCajaToolStripMenuItem_Click);
             // 
+            // ecommerceToolStripMenuItem
+            // 
+            this.ecommerceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mercadoLibreToolStripMenuItem});
+            this.ecommerceToolStripMenuItem.Image = global::StockVentas.Properties.Resources.erroba;
+            this.ecommerceToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ecommerceToolStripMenuItem.Name = "ecommerceToolStripMenuItem";
+            this.ecommerceToolStripMenuItem.Size = new System.Drawing.Size(77, 70);
+            this.ecommerceToolStripMenuItem.Text = "E-commerce";
+            this.ecommerceToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ecommerceToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // mercadoLibreToolStripMenuItem
+            // 
+            this.mercadoLibreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.publicarToolStripMenuItem});
+            this.mercadoLibreToolStripMenuItem.Name = "mercadoLibreToolStripMenuItem";
+            this.mercadoLibreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mercadoLibreToolStripMenuItem.Text = "Mercado Libre";
+            // 
+            // publicarToolStripMenuItem
+            // 
+            this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.publicarToolStripMenuItem.Text = "Publicar";
+            this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem19
             // 
             this.toolStripMenuItem19.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -722,29 +749,6 @@
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de . . .";
-            // 
-            // ecommerceToolStripMenuItem
-            // 
-            this.ecommerceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mercadoLibreToolStripMenuItem});
-            this.ecommerceToolStripMenuItem.Name = "ecommerceToolStripMenuItem";
-            this.ecommerceToolStripMenuItem.Size = new System.Drawing.Size(77, 70);
-            this.ecommerceToolStripMenuItem.Text = "E-commerce";
-            // 
-            // mercadoLibreToolStripMenuItem
-            // 
-            this.mercadoLibreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.publicarToolStripMenuItem});
-            this.mercadoLibreToolStripMenuItem.Name = "mercadoLibreToolStripMenuItem";
-            this.mercadoLibreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mercadoLibreToolStripMenuItem.Text = "Mercado Libre";
-            // 
-            // publicarToolStripMenuItem
-            // 
-            this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
-            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.publicarToolStripMenuItem.Text = "Publicar";
-            this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

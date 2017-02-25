@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CoiMeT8ySKLTHM4yOkyjfuzxuljGbS351lUYw94pKf4=</dsig:DigestValue>
+        <dsig:DigestValue>GWY4Qqx9lOp/u2OZkUTItP2NyzcbpKhJ1m337ozPuRY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZF5eYVI8sRR/nYU9NKNCyi4kpIFA4CKHZo0p5zUMnvM=</dsig:DigestValue>
+        <dsig:DigestValue>9dDfSSWiiIv6RSTiw15abKgvM6YV7ya1zZoouL4byeI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mQ3/dnN/17lvVc7/Sf6pNNLT2NXU+oQIssDLFS+EYsw=</dsig:DigestValue>
+        <dsig:DigestValue>T1fMi6oaLyQxJx86tw341OApDVt8/cgWyojzYqMhgdI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="132608">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.4.9.5" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0wRkMMxsmVD2JVWyS1z4euhLiiZXxjJ8Akk2nr5sNLE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -175,14 +187,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1003920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1051024">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kKVWUB6UnCPxUbm/LO/k10fSGtUriCvlHOWx06xWA3A=</dsig:DigestValue>
+        <dsig:DigestValue>1YNRSEDso9Gyk9AU6z/Qg0XkjqUoK4JweauB7NemBY4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -355,6 +367,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>M71mUUz96mfP++RUYXzE983tH8CQh+0BoePPRA345Xk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\seleccionar_imagen.jpg" size="693">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZlwmRWt/XxwjRoo2zUGkQB4dq/UdteOTTyJDHFMUTJw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="StockVentas.exe.config" size="4272">

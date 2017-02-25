@@ -58,7 +58,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingSource1 = new customBindingSource();
+            this.bindingSource1 = new StockVentas.customBindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.gvwDatos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();

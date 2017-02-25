@@ -30,7 +30,7 @@ namespace StockVentas
         public frmArticulos()
         {
             InitializeComponent();
-            this.tblArticulos = BL.GetDataBLL.Articulos();
+            tblArticulos = BL.GetDataBLL.Articulos();
             origenMenu = true;
         }
 

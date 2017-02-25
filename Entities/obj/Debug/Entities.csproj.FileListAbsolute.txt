@@ -79,3 +79,4 @@ C:\Trend\Gestion-desktop\Entities\bin\Debug\Entities.dll
 C:\Trend\Gestion-desktop\Entities\bin\Debug\Entities.pdb
 C:\Trend\Gestion-desktop\Entities\obj\Debug\Entities.dll
 C:\Trend\Gestion-desktop\Entities\obj\Debug\Entities.pdb
+C:\Trend\Gestion-desktop\trunk\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
