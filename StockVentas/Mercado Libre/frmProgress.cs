@@ -33,6 +33,7 @@ namespace StockVentas.Mercado_Libre
         string tarea;
         MeliApiService meli;
         DataGridView dgvDatos = new DataGridView();
+        DataTable tblPublicar;
 
 
         public frmProgress()
@@ -40,12 +41,12 @@ namespace StockVentas.Mercado_Libre
             InitializeComponent();
         }
 
-        public frmProgress(string tarea, MeliApiService meli, DataGridView dgvDatos)
+        public frmProgress(string tarea, MeliApiService meli, DataTable tblPublicar)
         {
             InitializeComponent();
             this.tarea = tarea;
             this.meli = meli;
-            this.dgvDatos = dgvDatos;
+            this.tblPublicar = tblPublicar;
             bckWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bckWorker_DoWork);
         }
 
@@ -63,8 +64,6 @@ namespace StockVentas.Mercado_Libre
 
         private void bckWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            DataTable tblPublicar = new DataTable();
-            tblPublicar = (DataTable)dgvDatos.DataSource;
             DataRow[] result = tblPublicar.Select("Publicar = 1");
             foreach (DataRow row in result)
             {

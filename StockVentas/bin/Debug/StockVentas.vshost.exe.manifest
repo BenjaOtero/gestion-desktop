@@ -187,14 +187,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1051024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1051536">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1YNRSEDso9Gyk9AU6z/Qg0XkjqUoK4JweauB7NemBY4=</dsig:DigestValue>
+        <dsig:DigestValue>5ER9OnTrKBnbcdbRTP5KTOwIvP0YSVNBNH8JL4QjVUg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

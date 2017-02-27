@@ -6,6 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net;
+using System.Net.Http;
+using HttpParamsUtility;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.Web.Script.Serialization;
 
 
 
@@ -17,14 +23,14 @@ namespace StockVentas.Mercado_Libre
     {
         MeliApiService meli;
         string categoria;
-        DataGridView dgvDatos;
+        DataTable tblPublicar;
         
-        public frmPublicar_2(MeliApiService meli, string categoria, DataGridView dgvDatos)
+        public frmPublicar_2(MeliApiService meli, string categoria, DataTable tblPublicar)
         {
             InitializeComponent();
             this.meli = meli;
             this.categoria = categoria;
-            this.dgvDatos = dgvDatos;
+            this.tblPublicar = tblPublicar;
             BL.Utilitarios.AddEventosABM(grpCampos);
             txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(BL.Utilitarios.SoloNumeros);
             AddEventosValidacion();
@@ -34,8 +40,10 @@ namespace StockVentas.Mercado_Libre
         {
             this.CenterToScreen();
             System.Drawing.Icon ico = Properties.Resources.icono_app;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            grpBotones.CausesValidation = false;
+            btnSalir.CausesValidation = false;
         }
-
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -57,15 +65,16 @@ namespace StockVentas.Mercado_Libre
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, dgvDatos);
+            string json = CreateJson();
+            StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, tblPublicar);
             frm.ShowDialog();
         }
         
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
+            this.AutoValidate = AutoValidate.Disable;
             Close();
-            Cursor.Current = Cursors.Arrow;
+
         }
 
         private void frmArticulosPrecios_FormClosing(object sender, FormClosingEventArgs e)
@@ -146,6 +155,108 @@ namespace StockVentas.Mercado_Libre
         {
             if (chkEnvios.Checked) grpIncluirMercadoEnvios.Enabled = true;
             else grpIncluirMercadoEnvios.Enabled = false;
+        }
+
+        private string CreateJson()
+        {
+            DataSet ds = BL.MercadoLibreBLL.GetData();
+            DataTable tblColores = ds.Tables[0];
+            DataTable tblTalles = ds.Tables[1];
+            PublicarVariacion publicarVariacion = new PublicarVariacion();
+            publicarVariacion.title = txtTitulo.Text;
+            publicarVariacion.category_id = categoria;
+            publicarVariacion.price = Convert.ToInt32(txtPrecio.Text);
+            publicarVariacion.currency_id = "ARS";
+            publicarVariacion.buying_mode = "buy_it_now";
+            publicarVariacion.listing_type_id = "bronze";
+            string condicion;
+            if (rdNuevo.Checked) condicion = "new";
+            else condicion = "used";
+            publicarVariacion.condition = condicion;
+            publicarVariacion.description = "<div align =\"center\"><img src=\"https://trendsistemas.com/ml_images/descripcion_calzado_html.jpg\" alt=\"\" /></div>";
+            publicarVariacion.variations = new List<variations>{
+                        new variations() {
+                        attribute_combinations = new List<attribute_combinations> {
+                            new attribute_combinations() {id = "83000", value_id = "92028" },
+                            new attribute_combinations() {id = "73002", value_id = "82071" }
+                        },
+                        picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
+                        seller_custom_field = "050001",
+                        available_quantity = 2,
+                        price = 10
+                        },
+                        new variations() {
+                        attribute_combinations = new List<attribute_combinations> {
+                            new attribute_combinations() {id = "83000", value_id = "92028" },
+                            new attribute_combinations() {id = "73002", value_id = "82069" }
+                        },
+                        picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
+                        seller_custom_field = "050001",
+                        available_quantity = 2,
+                        price = 10
+                        }
+                    };
+            string json = new JavaScriptSerializer().Serialize(publicarVariacion);
+            return json;
+
+        }
+
+        private string CreateJsonCopia()
+        {
+            DataSet ds = BL.MercadoLibreBLL.GetData();
+            DataTable tblColores = ds.Tables[0];
+            DataTable tblTalles = ds.Tables[1];
+            PublicarVariacion publicarVariacion = new PublicarVariacion();
+            publicarVariacion.title = txtTitulo.Text;
+            publicarVariacion.category_id = categoria;
+            publicarVariacion.price = Convert.ToInt32(txtPrecio.Text);
+            publicarVariacion.currency_id = "ARS";
+            publicarVariacion.buying_mode = "buy_it_now";
+            publicarVariacion.listing_type_id = "bronze";
+            string condicion;
+            if (rdNuevo.Checked) condicion = "new";
+            else condicion = "used";
+            publicarVariacion.condition = condicion;
+            publicarVariacion.description = "<div align =\"center\"><img src=\"https://trendsistemas.com/ml_images/descripcion_calzado_html.jpg\" alt=\"\" /></div>";
+            var listVariaciones = new List<variations>();
+            foreach (DataRow rowPublicar in tblPublicar.Rows)
+            {
+                variations variacion = new variations();
+                variacion.attribute_combinations = new List<attribute_combinations>();
+
+                var at = new attribute_combinations
+                {
+                    id = rowPublicar[0].ToString(),
+                    value_id = rowPublicar[0].ToString(),
+                };
+                variacion.Add(tc);
+
+            }
+            publicarVariacion.variations = listVariaciones;
+            publicarVariacion.variations = new List<variations>{
+                            new variations() {
+                            attribute_combinations = new List<attribute_combinations> {
+                                new attribute_combinations() {id = "83000", value_id = "92028" },
+                                new attribute_combinations() {id = "73002", value_id = "82071" }
+                          },
+                            picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
+                            seller_custom_field = "050001",
+                            available_quantity = 2,
+                            price = 10
+                          },
+                            new variations() {
+                            attribute_combinations = new List<attribute_combinations> {
+                                new attribute_combinations() {id = "83000", value_id = "92028" },
+                                new attribute_combinations() {id = "73002", value_id = "82069" }
+                          },
+                            picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
+                            seller_custom_field = "050001",
+                            available_quantity = 2,
+                            price = 10
+                          }
+                      };
+            string json = new JavaScriptSerializer().Serialize(publicarVariacion);
+            return json;
         }
     }
 }

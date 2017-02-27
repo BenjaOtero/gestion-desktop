@@ -29,6 +29,7 @@ namespace StockVentas.Mercado_Libre
         string mAuthURL;
         MeliApiService meli;
         private DataTable tblArticulos;
+        DataTable tblStock;
         DataGridView dgvDatos = new DataGridView();
         BindingSource bindingSource1 = new BindingSource();
         DataView viewDatos;
@@ -45,6 +46,7 @@ namespace StockVentas.Mercado_Libre
         {
             this.CenterToScreen();
             System.Drawing.Icon ico = Properties.Resources.icono_app;
+            lstSubcategorias4.Enabled = false;
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -59,7 +61,8 @@ namespace StockVentas.Mercado_Libre
             var results = from DataRow myRow in tblArticulos.Rows
                           where myRow.Field<decimal?>("Stock") != 0 && myRow.Field<decimal?>("Stock") != null
                           select myRow;
-            DataTable tblStock = results.CopyToDataTable();
+            tblStock = results.CopyToDataTable();
+            tblStock.Columns.Add("Publicar", typeof(bool));
             bindingSource1.DataSource = tblStock;
             bindingSource1.Filter = "IdArticuloART LIKE '000000000'";
             viewDatos = new DataView(tblStock);
@@ -75,14 +78,6 @@ namespace StockVentas.Mercado_Libre
             dgvDatos.Columns["IdArticuloART"].ReadOnly = true;
             dgvDatos.Columns["DescripcionART"].HeaderText = "Descripcion";
             dgvDatos.Columns["DescripcionART"].ReadOnly = true;
-
-            DataGridViewCheckBoxColumn publicar = new DataGridViewCheckBoxColumn();
-            publicar.Name = "Publicar";
-            publicar.Width = 40;
-            publicar.HeaderText = "Publicar";
-            publicar.TrueValue = 1;
-            publicar.FalseValue = 0;
-            dgvDatos.Columns.Add(publicar);
 
             imageColumn = new DataGridViewImageColumn();
             imageColumn.Image = emptyImage;
@@ -113,7 +108,7 @@ namespace StockVentas.Mercado_Libre
 
             urlColumn = new DataGridViewTextBoxColumn();
             urlColumn.Name = "url_1";
-            urlColumn.Visible = true;
+            urlColumn.Visible = false;
             dgvDatos.Columns.Add(urlColumn);
 
             urlColumn = new DataGridViewTextBoxColumn();
@@ -157,6 +152,7 @@ namespace StockVentas.Mercado_Libre
             lstCategoriasRopa.DataSource = childrens.children_categories.ToArray();
             lstCategoriasRopa.ValueMember = "id";
             lstCategoriasRopa.DisplayMember = "name";
+            lstCategoriasRopa.SelectedValue = -1;
         }
 
         private void lstCategories_DoubleClick(object sender, EventArgs e)
@@ -187,10 +183,10 @@ namespace StockVentas.Mercado_Libre
         async void GetSubcategorias1()
         {
             var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstCategoriasRopa.SelectedValue.ToString());
-
             lstSubcategorias1.DataSource = childrens.children_categories.ToArray();
             lstSubcategorias1.ValueMember = "id";
             lstSubcategorias1.DisplayMember = "name";
+            lstSubcategorias1.SelectedValue = -1;
         }
 
         async void GetSubcategorias2()
@@ -200,6 +196,7 @@ namespace StockVentas.Mercado_Libre
             lstSubcategorias2.DataSource = childrens.children_categories.ToArray();
             lstSubcategorias2.ValueMember = "id";
             lstSubcategorias2.DisplayMember = "name";
+            lstSubcategorias2.SelectedValue = -1;
         }
 
         async void GetSubcategorias3()
@@ -210,13 +207,11 @@ namespace StockVentas.Mercado_Libre
                 lstSubcategorias3.DataSource = childrens.children_categories.ToArray();
                 lstSubcategorias3.ValueMember = "id";
                 lstSubcategorias3.DisplayMember = "name";
+                lstSubcategorias3.SelectedValue = -1;
             }
             else
             {
-                string categoria = lstSubcategorias2.SelectedValue.ToString();
-                frmPublicar_2 frm = new frmPublicar_2(meli, categoria, dgvDatos);
-                frm.Show();
-                Close();
+
             }
         }
 
@@ -228,13 +223,11 @@ namespace StockVentas.Mercado_Libre
                 lstSubcategorias4.DataSource = childrens.children_categories.ToArray();
                 lstSubcategorias4.ValueMember = "id";
                 lstSubcategorias4.DisplayMember = "name";
+                lstSubcategorias4.SelectedValue = -1;
             }
             else
             {
-                string categoria = lstSubcategorias3.SelectedValue.ToString();
-                frmPublicar_2 frm = new frmPublicar_2(meli, categoria, dgvDatos);
-                frm.Show();
-                Close();
+
             }
         }
 
@@ -323,8 +316,52 @@ namespace StockVentas.Mercado_Libre
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            frmPublicar_2 frm = new frmPublicar_2(meli, "categoria", dgvDatos);
+            DataTable tblPublicar;
+            try
+            {
+                var results = from DataRow myRow in tblStock.Rows
+                              where myRow.Field<bool?>("Publicar") == true
+                              select myRow;
+                tblPublicar = results.CopyToDataTable();
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Debe publicar al menos un producto.", "Trend", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string categoria = "";
+            frmPublicar_2 frm = new frmPublicar_2(meli, categoria, tblPublicar);
             frm.Show();
+            /* if (lstSubcategorias4.Items.Count > 0)
+             {
+                 if (lstSubcategorias4.SelectedValue.ToString() == "-1")
+                 {
+                     MessageBox.Show("Trend", "Debe seleccionar un valor de la lista", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                 }
+                 else
+                 {
+                     categoria = lstSubcategorias4.SelectedValue.ToString();
+                     frmPublicar_2 frm = new frmPublicar_2(meli, categoria, tblPublicar);
+                     frm.Show();
+                 }
+             }
+             else if (lstSubcategorias3.Items.Count > 0)
+             {
+                 if (lstSubcategorias3.SelectedValue.ToString() == "-1")
+                 {
+                     MessageBox.Show("Trend", "Debe seleccionar un valor de la lista", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                 }
+                 else
+                 {
+                     categoria = lstSubcategorias3.SelectedValue.ToString();
+                     frmPublicar_2 frm = new frmPublicar_2(meli, categoria, tblPublicar);
+                     frm.Show();
+                 }
+             }
+             else return;*/
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

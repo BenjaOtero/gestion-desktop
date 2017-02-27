@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Table.CreateColumn</Title>
+    <Author>autor</Author>
+    <Shortcut>snptDatatableCreateColumn</Shortcut>
+    <Description>Crea una nueva colunna en una tabla</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>nombre</ID>
+        <Default>valor</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("IdMovMSTK", typeof(int));
+            ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
