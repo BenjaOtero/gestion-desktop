@@ -63,6 +63,10 @@ namespace StockVentas.Mercado_Libre
                           select myRow;
             tblStock = results.CopyToDataTable();
             tblStock.Columns.Add("Publicar", typeof(bool));
+            tblStock.Columns.Add("url_1", typeof(string));
+            tblStock.Columns.Add("url_2", typeof(string));
+            tblStock.Columns.Add("url_3", typeof(string));
+            tblStock.Columns.Add("url_4", typeof(string));
             bindingSource1.DataSource = tblStock;
             bindingSource1.Filter = "IdArticuloART LIKE '000000000'";
             viewDatos = new DataView(tblStock);
@@ -72,6 +76,10 @@ namespace StockVentas.Mercado_Libre
             dgvDatos.EditMode = DataGridViewEditMode.EditOnKeystroke;
             dgvDatos.Columns["PrecioPublicoART"].Visible = false;
             dgvDatos.Columns["PrecioMayorART"].Visible = false;
+            dgvDatos.Columns["url_1"].Visible = false;
+            dgvDatos.Columns["url_2"].Visible = false;
+            dgvDatos.Columns["url_3"].Visible = false;
+            dgvDatos.Columns["url_4"].Visible = false;
             dgvDatos.Columns["PrecioCostoART"].HeaderText = "Costo";
             dgvDatos.Columns["PrecioCostoART"].ReadOnly = true;
             dgvDatos.Columns["IdArticuloART"].HeaderText = "Codigo";
@@ -105,26 +113,6 @@ namespace StockVentas.Mercado_Libre
             imageColumn.HeaderText = "Imagen 4";
             imageColumn.Visible = false;
             dgvDatos.Columns.Add(imageColumn);
-
-            urlColumn = new DataGridViewTextBoxColumn();
-            urlColumn.Name = "url_1";
-            urlColumn.Visible = false;
-            dgvDatos.Columns.Add(urlColumn);
-
-            urlColumn = new DataGridViewTextBoxColumn();
-            urlColumn.Name = "url_2";
-            urlColumn.Visible = false;
-            dgvDatos.Columns.Add(urlColumn);
-
-            urlColumn = new DataGridViewTextBoxColumn();
-            urlColumn.Name = "url_3";
-            urlColumn.Visible = false;
-            dgvDatos.Columns.Add(urlColumn);
-
-            urlColumn = new DataGridViewTextBoxColumn();
-            urlColumn.Name = "url_4";
-            urlColumn.Visible = false;
-            dgvDatos.Columns.Add(urlColumn);
 
             dgvDatos.RowTemplate.Height = 40;
             txtParametros.Focus();
@@ -329,11 +317,8 @@ namespace StockVentas.Mercado_Libre
                 MessageBox.Show("Debe publicar al menos un producto.", "Trend", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            string categoria = "";
-            frmPublicar_2 frm = new frmPublicar_2(meli, categoria, tblPublicar);
-            frm.Show();
-            /* if (lstSubcategorias4.Items.Count > 0)
+            string categoria = string.Empty;
+             if (lstSubcategorias4.Items.Count > 0)
              {
                  if (lstSubcategorias4.SelectedValue.ToString() == "-1")
                  {
@@ -361,7 +346,7 @@ namespace StockVentas.Mercado_Libre
                      frm.Show();
                  }
              }
-             else return;*/
+             else return;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

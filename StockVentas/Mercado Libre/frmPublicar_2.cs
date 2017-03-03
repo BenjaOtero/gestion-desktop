@@ -65,9 +65,9 @@ namespace StockVentas.Mercado_Libre
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            string json = CreateJson();
-            StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, tblPublicar);
-            frm.ShowDialog();
+            string json = CreateJsonCopia();
+      //      StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, tblPublicar);
+         //   frm.ShowDialog();
         }
         
         private void btnSalir_Click(object sender, EventArgs e)
@@ -206,6 +206,8 @@ namespace StockVentas.Mercado_Libre
             DataSet ds = BL.MercadoLibreBLL.GetData();
             DataTable tblColores = ds.Tables[0];
             DataTable tblTalles = ds.Tables[1];
+            string value_id_color = string.Empty;
+            string value_id_talle = string.Empty;
             PublicarVariacion publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = txtTitulo.Text;
             publicarVariacion.category_id = categoria;
@@ -218,45 +220,56 @@ namespace StockVentas.Mercado_Libre
             else condicion = "used";
             publicarVariacion.condition = condicion;
             publicarVariacion.description = "<div align =\"center\"><img src=\"https://trendsistemas.com/ml_images/descripcion_calzado_html.jpg\" alt=\"\" /></div>";
+
             var listVariaciones = new List<variations>();
             foreach (DataRow rowPublicar in tblPublicar.Rows)
             {
+                string color = rowPublicar["IdArticuloART"].ToString().Substring(6,2);
+                string talle = rowPublicar["IdArticuloART"].ToString().Substring(8,2);
                 variations variacion = new variations();
-                variacion.attribute_combinations = new List<attribute_combinations>();
-
-                var at = new attribute_combinations
+                List<attribute_combinations> attributes = new List<attribute_combinations>();               
+                attribute_combinations colores = new attribute_combinations
                 {
-                    id = rowPublicar[0].ToString(),
-                    value_id = rowPublicar[0].ToString(),
+                    id = "83000",
+                    value_id = value_id_color,
                 };
-                variacion.Add(tc);
-
+                attributes.Add(colores);
+                if (!string.IsNullOrEmpty(value_id_talle))
+                {
+                    attribute_combinations talles = new attribute_combinations
+                    {
+                        id = "73002",
+                        value_id = value_id_talle,
+                    };
+                    attributes.Add(talles);
+                }
+                variacion.attribute_combinations = attributes;
+                List<string> imagenes = new List<string>();
+                if (!string.IsNullOrEmpty(rowPublicar["url_1"].ToString()))
+                {
+                    imagenes.Add(rowPublicar["url_1"].ToString());
+                }
+                if (!string.IsNullOrEmpty(rowPublicar["url_2"].ToString()))
+                {
+                    imagenes.Add(rowPublicar["url_2"].ToString());
+                }
+                if (!string.IsNullOrEmpty(rowPublicar["url_3"].ToString()))
+                {
+                    imagenes.Add(rowPublicar["url_3"].ToString());
+                }
+                if (!string.IsNullOrEmpty(rowPublicar["url_4"].ToString()))
+                {
+                    imagenes.Add(rowPublicar["url_4"].ToString());
+                }
+                variacion.seller_custom_field = rowPublicar["IdArticuloART"].ToString().Substring(0, 6);
+                variacion.available_quantity = Convert.ToInt32(rowPublicar["Stock"].ToString());
+                variacion.price = Convert.ToInt32(txtPrecio.Text);
+                listVariaciones.Add(variacion);
             }
             publicarVariacion.variations = listVariaciones;
-            publicarVariacion.variations = new List<variations>{
-                            new variations() {
-                            attribute_combinations = new List<attribute_combinations> {
-                                new attribute_combinations() {id = "83000", value_id = "92028" },
-                                new attribute_combinations() {id = "73002", value_id = "82071" }
-                          },
-                            picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
-                            seller_custom_field = "050001",
-                            available_quantity = 2,
-                            price = 10
-                          },
-                            new variations() {
-                            attribute_combinations = new List<attribute_combinations> {
-                                new attribute_combinations() {id = "83000", value_id = "92028" },
-                                new attribute_combinations() {id = "73002", value_id = "82069" }
-                          },
-                            picture_ids = new List<string> { "https://trendsistemas.com/ml_images/050003.jpg", "https://trendsistemas.com/ml_images/050004.jpg"},
-                            seller_custom_field = "050001",
-                            available_quantity = 2,
-                            price = 10
-                          }
-                      };
             string json = new JavaScriptSerializer().Serialize(publicarVariacion);
             return json;
         }
+
     }
 }

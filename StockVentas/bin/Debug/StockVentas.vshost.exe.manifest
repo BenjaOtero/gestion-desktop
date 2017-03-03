@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BL.dll" size="31232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BL.dll" size="31744">
       <assemblyIdentity name="BL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GWY4Qqx9lOp/u2OZkUTItP2NyzcbpKhJ1m337ozPuRY=</dsig:DigestValue>
+        <dsig:DigestValue>acktnYxNgPuX4v9mKWUFf5pEGEAhC1J3/RqyUlgAYyY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="54784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="55296">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9dDfSSWiiIv6RSTiw15abKgvM6YV7ya1zZoouL4byeI=</dsig:DigestValue>
+        <dsig:DigestValue>i9bGDltReP07RipltC0yfnxRadgoLDKUkWYcW8rUfkI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -187,14 +187,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1051536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1053072">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5ER9OnTrKBnbcdbRTP5KTOwIvP0YSVNBNH8JL4QjVUg=</dsig:DigestValue>
+        <dsig:DigestValue>K8wWNieuNifWT4YOa/SssiYe0DqQ6wfBKyNeiuqUUDo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
