@@ -205,8 +205,9 @@ namespace StockVentas.Mercado_Libre
         {
             DataSet ds = BL.MercadoLibreBLL.GetData();
             DataTable tblColores = ds.Tables[0];
+            tblColores.PrimaryKey = new DataColumn[] { tblColores.Columns["value_name"] };
             DataTable tblTalles = ds.Tables[1];
-            string value_id_color = string.Empty;
+            tblTalles.PrimaryKey = new DataColumn[] { tblTalles.Columns["value_name"] };
             string value_id_talle = string.Empty;
             PublicarVariacion publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = txtTitulo.Text;
@@ -214,7 +215,7 @@ namespace StockVentas.Mercado_Libre
             publicarVariacion.price = Convert.ToInt32(txtPrecio.Text);
             publicarVariacion.currency_id = "ARS";
             publicarVariacion.buying_mode = "buy_it_now";
-            publicarVariacion.listing_type_id = "bronze";
+            publicarVariacion.listing_type_id = "gold_special";
             string condicion;
             if (rdNuevo.Checked) condicion = "new";
             else condicion = "used";
@@ -224,47 +225,68 @@ namespace StockVentas.Mercado_Libre
             var listVariaciones = new List<variations>();
             foreach (DataRow rowPublicar in tblPublicar.Rows)
             {
-                string color = rowPublicar["IdArticuloART"].ToString().Substring(6,2);
-                string talle = rowPublicar["IdArticuloART"].ToString().Substring(8,2);
-                variations variacion = new variations();
-                List<attribute_combinations> attributes = new List<attribute_combinations>();               
-                attribute_combinations colores = new attribute_combinations
+                string color = rowPublicar["DescripcionCOL"].ToString();
+                string talle = rowPublicar["TalleART"].ToString();
+                DataRow foundColor = tblColores.Rows.Find(color);
+                DataRow foundTalle = tblTalles.Rows.Find(talle);
+                if (foundColor != null)
                 {
-                    id = "83000",
-                    value_id = value_id_color,
-                };
-                attributes.Add(colores);
-                if (!string.IsNullOrEmpty(value_id_talle))
-                {
-                    attribute_combinations talles = new attribute_combinations
+                    variations variacion = new variations();
+                    List<attribute_combinations> attributes = new List<attribute_combinations>();
+                    attribute_combinations colores = new attribute_combinations
                     {
-                        id = "73002",
-                        value_id = value_id_talle,
+                        id = "83000",
+                        value_id = foundColor["value_id"].ToString(),
                     };
-                    attributes.Add(talles);
+                    attributes.Add(colores);
+                    if (!string.IsNullOrEmpty(value_id_talle))
+                    {
+                        attribute_combinations talles = new attribute_combinations
+                        {
+                            id = "73002",
+                            value_id = value_id_talle,
+                        };
+                        attributes.Add(talles);
+                    }
+                    else
+                    {
+                        attribute_combinations talles = new attribute_combinations
+                        {
+                            id = "73002",
+                            value_id = "82096",
+                        };
+                        attributes.Add(talles);                        
+                    }
+                    variacion.attribute_combinations = attributes;
+                    List<string> imagenes = new List<string>();
+                    if (!string.IsNullOrEmpty(rowPublicar["url_1"].ToString()))
+                    {
+                        imagenes.Add(rowPublicar["url_1"].ToString());
+                    }
+                    if (!string.IsNullOrEmpty(rowPublicar["url_2"].ToString()))
+                    {
+                        imagenes.Add(rowPublicar["url_2"].ToString());
+                    }
+                    if (!string.IsNullOrEmpty(rowPublicar["url_3"].ToString()))
+                    {
+                        imagenes.Add(rowPublicar["url_3"].ToString());
+                    }
+                    if (!string.IsNullOrEmpty(rowPublicar["url_4"].ToString()))
+                    {
+                        imagenes.Add(rowPublicar["url_4"].ToString());
+                    }
+                    variacion.picture_ids = imagenes;
+                    variacion.seller_custom_field = rowPublicar["IdArticuloART"].ToString().Substring(0, 6);
+                    variacion.available_quantity = Convert.ToInt32(rowPublicar["Stock"].ToString());
+                    variacion.price = Convert.ToInt32(txtPrecio.Text);
+                    listVariaciones.Add(variacion);
                 }
-                variacion.attribute_combinations = attributes;
-                List<string> imagenes = new List<string>();
-                if (!string.IsNullOrEmpty(rowPublicar["url_1"].ToString()))
+                else
                 {
-                    imagenes.Add(rowPublicar["url_1"].ToString());
+                    MessageBox.Show("El color '" + rowPublicar["DescripcionCOL"].ToString() + "' no existe en Mercado Libre."
+                         + '\r' + "No se publicará el producto.", "Trend", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                 }
-                if (!string.IsNullOrEmpty(rowPublicar["url_2"].ToString()))
-                {
-                    imagenes.Add(rowPublicar["url_2"].ToString());
-                }
-                if (!string.IsNullOrEmpty(rowPublicar["url_3"].ToString()))
-                {
-                    imagenes.Add(rowPublicar["url_3"].ToString());
-                }
-                if (!string.IsNullOrEmpty(rowPublicar["url_4"].ToString()))
-                {
-                    imagenes.Add(rowPublicar["url_4"].ToString());
-                }
-                variacion.seller_custom_field = rowPublicar["IdArticuloART"].ToString().Substring(0, 6);
-                variacion.available_quantity = Convert.ToInt32(rowPublicar["Stock"].ToString());
-                variacion.price = Convert.ToInt32(txtPrecio.Text);
-                listVariaciones.Add(variacion);
             }
             publicarVariacion.variations = listVariaciones;
             string json = new JavaScriptSerializer().Serialize(publicarVariacion);

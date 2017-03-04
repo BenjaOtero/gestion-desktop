@@ -34,7 +34,6 @@ namespace StockVentas.Mercado_Libre
         BindingSource bindingSource1 = new BindingSource();
         DataView viewDatos;
         DataGridViewImageColumn imageColumn;
-        DataGridViewTextBoxColumn urlColumn;
         Image emptyImage = global::StockVentas.Properties.Resources.seleccionar_imagen;
 
         public frmPublicar()
@@ -56,7 +55,7 @@ namespace StockVentas.Mercado_Libre
             this.dgvDatos.TabIndex = 21;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(dgvDatos_CellClick);
             this.Controls.Add(this.dgvDatos);
-            tblArticulos = BL.ArticulosBLL.GetArticulosStock();
+            tblArticulos = BL.MercadoLibreBLL.GetDataPublicar();
             meli = new MeliApiService();
             var results = from DataRow myRow in tblArticulos.Rows
                           where myRow.Field<decimal?>("Stock") != 0 && myRow.Field<decimal?>("Stock") != null
@@ -76,6 +75,8 @@ namespace StockVentas.Mercado_Libre
             dgvDatos.EditMode = DataGridViewEditMode.EditOnKeystroke;
             dgvDatos.Columns["PrecioPublicoART"].Visible = false;
             dgvDatos.Columns["PrecioMayorART"].Visible = false;
+            dgvDatos.Columns["DescripcionCOL"].Visible = false;
+            dgvDatos.Columns["TalleART"].Visible = false;
             dgvDatos.Columns["url_1"].Visible = false;
             dgvDatos.Columns["url_2"].Visible = false;
             dgvDatos.Columns["url_3"].Visible = false;

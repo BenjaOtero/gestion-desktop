@@ -11,5 +11,10 @@ namespace BL
             return datos;
         }
 
+        public static DataTable GetDataPublicar()
+        {
+            DataTable datos = DAL.MercadoLibreDAL.GetDataPublicar();
+            return datos;
+        }
     }
 }
