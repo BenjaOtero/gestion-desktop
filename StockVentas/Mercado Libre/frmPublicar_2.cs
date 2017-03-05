@@ -66,6 +66,9 @@ namespace StockVentas.Mercado_Libre
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             string json = CreateJsonCopia();
+            meli.PostAsync("/items/" +  json);
+            Publicar(json);
+
       //      StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, tblPublicar);
          //   frm.ShowDialog();
         }
@@ -198,6 +201,11 @@ namespace StockVentas.Mercado_Libre
                     };
             string json = new JavaScriptSerializer().Serialize(publicarVariacion);
             return json;
+        }
+
+        async void Publicar(string json)
+        {
+            await meli.PostAsync("/items/" + json);
 
         }
 
@@ -239,12 +247,12 @@ namespace StockVentas.Mercado_Libre
                         value_id = foundColor["value_id"].ToString(),
                     };
                     attributes.Add(colores);
-                    if (!string.IsNullOrEmpty(value_id_talle))
+                    if (foundTalle != null)
                     {
                         attribute_combinations talles = new attribute_combinations
                         {
                             id = "73002",
-                            value_id = value_id_talle,
+                            value_id = foundTalle["value_id"].ToString(),
                         };
                         attributes.Add(talles);
                     }
@@ -259,21 +267,30 @@ namespace StockVentas.Mercado_Libre
                     }
                     variacion.attribute_combinations = attributes;
                     List<string> imagenes = new List<string>();
+                    string idRazonSocial = BL.GetDataBLL.RazonSocial().Rows[0][0].ToString();
                     if (!string.IsNullOrEmpty(rowPublicar["url_1"].ToString()))
                     {
-                        imagenes.Add(rowPublicar["url_1"].ToString());
+                        string imagen = idRazonSocial + "_" + rowPublicar["IdArticuloART"].ToString().Substring(0, 8) + "_01" + ".jpg";
+                        string url = "https://trendsistemas.com/ml_images/" + imagen;
+                        imagenes.Add(url);
                     }
                     if (!string.IsNullOrEmpty(rowPublicar["url_2"].ToString()))
                     {
-                        imagenes.Add(rowPublicar["url_2"].ToString());
+                        string imagen = idRazonSocial + "_" + rowPublicar["IdArticuloART"].ToString().Substring(0, 8) + "_02" + ".jpg";
+                        string url = "https://trendsistemas.com/ml_images/" + imagen;
+                        imagenes.Add(url);
                     }
                     if (!string.IsNullOrEmpty(rowPublicar["url_3"].ToString()))
                     {
-                        imagenes.Add(rowPublicar["url_3"].ToString());
+                        string imagen = idRazonSocial + "_" + rowPublicar["IdArticuloART"].ToString().Substring(0, 8) + "_03" + ".jpg";
+                        string url = "https://trendsistemas.com/ml_images/" + imagen;
+                        imagenes.Add(url);
                     }
                     if (!string.IsNullOrEmpty(rowPublicar["url_4"].ToString()))
                     {
-                        imagenes.Add(rowPublicar["url_4"].ToString());
+                        string imagen = idRazonSocial + "_" + rowPublicar["IdArticuloART"].ToString().Substring(0, 8) + "_04" + ".jpg";
+                        string url = "https://trendsistemas.com/ml_images/" + imagen;
+                        imagenes.Add(url);
                     }
                     variacion.picture_ids = imagenes;
                     variacion.seller_custom_field = rowPublicar["IdArticuloART"].ToString().Substring(0, 6);
