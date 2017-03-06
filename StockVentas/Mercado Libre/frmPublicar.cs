@@ -123,13 +123,13 @@ namespace StockVentas.Mercado_Libre
         {
             mAuthURL = meli.GetAuthUrl(577247158873150, MercadoLibre.SDK.Meta.MeliSite.Argentina, "https://trendsistemas.com/ml_response.php");
             Uri myUri = new Uri(mAuthURL);
-            System.Diagnostics.Process.Start(@mAuthURL);
-            meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
+            System.Diagnostics.Process.Start(@mAuthURL);            
             //APP_USR-577247158873150-012817-cd7e2cade3e89b6863bbf9452df3319d__E_G__-241962277
         }
 
         private void btnAccessToken_Click(object sender, EventArgs e)
         {
+            meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
             meli.AuthorizeAsync(textBox1.Text, "https://trendsistemas.com/ml_response.php");
             //  GetVariacion();
             GetCategoriasRopa(); 

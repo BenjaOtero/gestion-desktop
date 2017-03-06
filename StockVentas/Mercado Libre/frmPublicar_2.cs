@@ -24,7 +24,9 @@ namespace StockVentas.Mercado_Libre
         MeliApiService meli;
         string categoria;
         DataTable tblPublicar;
-        
+        PublicarVariacion publicarVariacion;
+
+
         public frmPublicar_2(MeliApiService meli, string categoria, DataTable tblPublicar)
         {
             InitializeComponent();
@@ -67,7 +69,9 @@ namespace StockVentas.Mercado_Libre
         {
             string json = CreateJsonCopia();
             meli.PostAsync("/items/" +  json);
-            Publicar(json);
+            var p = new HttpParams().Add("access_token", meli.Credentials.AccessToken);
+            meli.PostAsync("items/", p, publicarVariacion);
+         //   Publicar(json);
 
       //      StockVentas.Mercado_Libre.frmProgress frm = new StockVentas.Mercado_Libre.frmProgress("subirImagenes", meli, tblPublicar);
          //   frm.ShowDialog();
@@ -217,7 +221,7 @@ namespace StockVentas.Mercado_Libre
             DataTable tblTalles = ds.Tables[1];
             tblTalles.PrimaryKey = new DataColumn[] { tblTalles.Columns["value_name"] };
             string value_id_talle = string.Empty;
-            PublicarVariacion publicarVariacion = new PublicarVariacion();
+            publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = txtTitulo.Text;
             publicarVariacion.category_id = categoria;
             publicarVariacion.price = Convert.ToInt32(txtPrecio.Text);
