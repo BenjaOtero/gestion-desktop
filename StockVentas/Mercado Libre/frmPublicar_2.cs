@@ -220,6 +220,7 @@ namespace StockVentas.Mercado_Libre
             tblColores.PrimaryKey = new DataColumn[] { tblColores.Columns["value_name"] };
             DataTable tblTalles = ds.Tables[1];
             tblTalles.PrimaryKey = new DataColumn[] { tblTalles.Columns["value_name"] };
+            List<string> imagenes = new List<string>();
             string value_id_talle = string.Empty;
             publicarVariacion = new PublicarVariacion();
             publicarVariacion.title = txtTitulo.Text;
@@ -233,7 +234,6 @@ namespace StockVentas.Mercado_Libre
             else condicion = "used";
             publicarVariacion.condition = condicion;
             publicarVariacion.description = "<div align =\"center\"><img src=\"https://trendsistemas.com/ml_images/descripcion_calzado_html.jpg\" alt=\"\" /></div>";
-
             var listVariaciones = new List<variations>();
             foreach (DataRow rowPublicar in tblPublicar.Rows)
             {
@@ -270,7 +270,6 @@ namespace StockVentas.Mercado_Libre
                         attributes.Add(talles);                        
                     }
                     variacion.attribute_combinations = attributes;
-                    List<string> imagenes = new List<string>();
                     string idRazonSocial = BL.GetDataBLL.RazonSocial().Rows[0][0].ToString();
                     if (!string.IsNullOrEmpty(rowPublicar["url_1"].ToString()))
                     {
@@ -300,7 +299,7 @@ namespace StockVentas.Mercado_Libre
                     variacion.seller_custom_field = rowPublicar["IdArticuloART"].ToString().Substring(0, 6);
                     variacion.available_quantity = Convert.ToInt32(rowPublicar["Stock"].ToString());
                     variacion.price = Convert.ToInt32(txtPrecio.Text);
-                    listVariaciones.Add(variacion);
+                    listVariaciones.Add(variacion);                    
                 }
                 else
                 {
@@ -309,6 +308,18 @@ namespace StockVentas.Mercado_Libre
                                 MessageBoxIcon.Error);
                 }
             }
+            List<Picture> pictures = new List<Picture>();
+            foreach (string imagen in imagenes)
+            {
+                Picture picture = new Picture
+                {
+                    size = "500x333",
+                    max_size = "1200x800",
+                    source = imagen,
+                };
+                pictures.Add(picture);
+            }
+            publicarVariacion.pictures = pictures;
             publicarVariacion.variations = listVariaciones;
             string json = new JavaScriptSerializer().Serialize(publicarVariacion);
             return json;
