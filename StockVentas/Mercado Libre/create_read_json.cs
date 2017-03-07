@@ -20,7 +20,18 @@ namespace StockVentas.Mercado_Libre
         public string listing_type_id { get; set; }
         public string condition { get; set; }
         public string description { get; set; }
+        public List<Picture> pictures { get; set; }
         public List<variations> variations { get; set; }
+    }
+
+    public class Picture
+    {
+        public string id { get; set; }
+        public string url { get; set; }
+        public string secure_url { get; set; }
+        public string size { get; set; }
+        public string max_size { get; set; }
+        public string quality { get; set; }
     }
 
     public class variations
