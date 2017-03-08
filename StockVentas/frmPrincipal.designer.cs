@@ -106,6 +106,7 @@
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaRemotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -523,6 +524,7 @@
             // mercadoLibreToolStripMenuItem
             // 
             this.mercadoLibreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
             this.publicarToolStripMenuItem});
             this.mercadoLibreToolStripMenuItem.Name = "mercadoLibreToolStripMenuItem";
             this.mercadoLibreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
@@ -531,7 +533,7 @@
             // publicarToolStripMenuItem
             // 
             this.publicarToolStripMenuItem.Name = "publicarToolStripMenuItem";
-            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.publicarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.publicarToolStripMenuItem.Text = "Publicar";
             this.publicarToolStripMenuItem.Click += new System.EventHandler(this.publicarToolStripMenuItem_Click);
             // 
@@ -750,6 +752,13 @@
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de . . .";
             // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginMercadoLibre_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -850,6 +859,7 @@
         private System.Windows.Forms.ToolStripMenuItem ecommerceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mercadoLibreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem publicarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
     }
 }
 

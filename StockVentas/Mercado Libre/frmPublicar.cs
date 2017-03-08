@@ -43,6 +43,7 @@ namespace StockVentas.Mercado_Libre
 
         private void frmPublicar_Load(object sender, EventArgs e)
         {
+
             this.CenterToScreen();
             System.Drawing.Icon ico = Properties.Resources.icono_app;
             lstSubcategorias4.Enabled = false;
@@ -129,7 +130,7 @@ namespace StockVentas.Mercado_Libre
 
         private void btnAccessToken_Click(object sender, EventArgs e)
         {
-            meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
+            //     meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
             meli.AuthorizeAsync(textBox1.Text, "https://trendsistemas.com/ml_response.php");
             //  GetVariacion();
             GetCategoriasRopa(); 

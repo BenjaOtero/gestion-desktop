@@ -483,6 +483,12 @@ namespace StockVentas
 
         }
 
+        private void loginMercadoLibre_Click(object sender, EventArgs e)
+        {
+            Mercado_Libre.frmLogin frm = new Mercado_Libre.frmLogin();
+            frm.Show();
+        }
+
         private void restaurarBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string fileName;
