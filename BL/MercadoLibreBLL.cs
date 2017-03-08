@@ -5,6 +5,12 @@ namespace BL
     public static class MercadoLibreBLL
     {
 
+        public static string GetAccessToken()
+        {
+            string access_token = DAL.MercadoLibreDAL.GetAccessToken();
+            return access_token;
+        }
+
         public static DataSet GetData()
         {
             DataSet datos = DAL.MercadoLibreDAL.GetData();

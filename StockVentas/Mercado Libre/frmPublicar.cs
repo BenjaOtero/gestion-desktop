@@ -28,6 +28,7 @@ namespace StockVentas.Mercado_Libre
     {
         string mAuthURL;
         MeliApiService meli;
+        HttpParams parametros;
         private DataTable tblArticulos;
         DataTable tblStock;
         DataGridView dgvDatos = new DataGridView();
@@ -43,6 +44,9 @@ namespace StockVentas.Mercado_Libre
 
         private void frmPublicar_Load(object sender, EventArgs e)
         {
+            meli = new MeliApiService();
+            string access_token = BL.MercadoLibreBLL.GetAccessToken();
+            parametros = new HttpParams().Add("access_token", access_token);
 
             this.CenterToScreen();
             System.Drawing.Icon ico = Properties.Resources.icono_app;
@@ -50,14 +54,13 @@ namespace StockVentas.Mercado_Libre
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(258, 290);
+            this.dgvDatos.Location = new System.Drawing.Point(263, 195);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.Size = new System.Drawing.Size(895, 305);
             this.dgvDatos.TabIndex = 21;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(dgvDatos_CellClick);
             this.Controls.Add(this.dgvDatos);
-            tblArticulos = BL.MercadoLibreBLL.GetDataPublicar();
-            meli = new MeliApiService();
+            tblArticulos = BL.MercadoLibreBLL.GetDataPublicar();            
             var results = from DataRow myRow in tblArticulos.Rows
                           where myRow.Field<decimal?>("Stock") != 0 && myRow.Field<decimal?>("Stock") != null
                           select myRow;
@@ -117,28 +120,13 @@ namespace StockVentas.Mercado_Libre
             dgvDatos.Columns.Add(imageColumn);
 
             dgvDatos.RowTemplate.Height = 40;
+            GetCategoriasRopa();
             txtParametros.Focus();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            mAuthURL = meli.GetAuthUrl(577247158873150, MercadoLibre.SDK.Meta.MeliSite.Argentina, "https://trendsistemas.com/ml_response.php");
-            Uri myUri = new Uri(mAuthURL);
-            System.Diagnostics.Process.Start(@mAuthURL);            
-            //APP_USR-577247158873150-012817-cd7e2cade3e89b6863bbf9452df3319d__E_G__-241962277
-        }
-
-        private void btnAccessToken_Click(object sender, EventArgs e)
-        {
-            //     meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
-            meli.AuthorizeAsync(textBox1.Text, "https://trendsistemas.com/ml_response.php");
-            //  GetVariacion();
-            GetCategoriasRopa(); 
-        }
-
         async void GetCategoriasRopa()
-        {
-            var childrens = await meli.GetAsync<RootobjectSub>("/categories/MLA1430");
+        {            
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/MLA1430", parametros);
             lstCategoriasRopa.DataSource = childrens.children_categories.ToArray();
             lstCategoriasRopa.ValueMember = "id";
             lstCategoriasRopa.DisplayMember = "name";
@@ -172,7 +160,7 @@ namespace StockVentas.Mercado_Libre
 
         async void GetSubcategorias1()
         {
-            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstCategoriasRopa.SelectedValue.ToString());
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstCategoriasRopa.SelectedValue.ToString(), parametros);
             lstSubcategorias1.DataSource = childrens.children_categories.ToArray();
             lstSubcategorias1.ValueMember = "id";
             lstSubcategorias1.DisplayMember = "name";
@@ -181,7 +169,7 @@ namespace StockVentas.Mercado_Libre
 
         async void GetSubcategorias2()
         {
-            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias1.SelectedValue.ToString());
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias1.SelectedValue.ToString(), parametros);
 
             lstSubcategorias2.DataSource = childrens.children_categories.ToArray();
             lstSubcategorias2.ValueMember = "id";
@@ -191,7 +179,7 @@ namespace StockVentas.Mercado_Libre
 
         async void GetSubcategorias3()
         {
-            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias2.SelectedValue.ToString());
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias2.SelectedValue.ToString(), parametros);
             if (childrens.children_categories.ToArray().Count() > 0)
             {
                 lstSubcategorias3.DataSource = childrens.children_categories.ToArray();
@@ -207,7 +195,7 @@ namespace StockVentas.Mercado_Libre
 
         async void GetSubcategorias4()
         {
-            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias3.SelectedValue.ToString());
+            var childrens = await meli.GetAsync<RootobjectSub>("/categories/" + lstSubcategorias3.SelectedValue.ToString(), parametros);
             if (childrens.children_categories.ToArray().Count() > 0)
             {
                 lstSubcategorias4.DataSource = childrens.children_categories.ToArray();

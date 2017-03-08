@@ -30,15 +30,10 @@
         {
             this.lstSubcategorias1 = new System.Windows.Forms.ListBox();
             this.lstCategoriasRopa = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnCreateJson = new System.Windows.Forms.Button();
-            this.btnAccessToken = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lstSubcategorias2 = new System.Windows.Forms.ListBox();
             this.lstSubcategorias3 = new System.Windows.Forms.ListBox();
             this.lstSubcategorias4 = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -46,14 +41,13 @@
             this.rdArticuloOrigen = new System.Windows.Forms.RadioButton();
             this.txtParametros = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstSubcategorias1
             // 
             this.lstSubcategorias1.FormattingEnabled = true;
-            this.lstSubcategorias1.Location = new System.Drawing.Point(241, 123);
+            this.lstSubcategorias1.Location = new System.Drawing.Point(241, 28);
             this.lstSubcategorias1.Name = "lstSubcategorias1";
             this.lstSubcategorias1.Size = new System.Drawing.Size(223, 134);
             this.lstSubcategorias1.TabIndex = 16;
@@ -62,57 +56,17 @@
             // lstCategoriasRopa
             // 
             this.lstCategoriasRopa.FormattingEnabled = true;
-            this.lstCategoriasRopa.Location = new System.Drawing.Point(10, 123);
+            this.lstCategoriasRopa.Location = new System.Drawing.Point(10, 28);
             this.lstCategoriasRopa.Name = "lstCategoriasRopa";
             this.lstCategoriasRopa.Size = new System.Drawing.Size(223, 134);
             this.lstCategoriasRopa.TabIndex = 17;
             this.lstCategoriasRopa.DoubleClick += new System.EventHandler(this.lstCategories_DoubleClick);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(166, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(327, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // btnCreateJson
-            // 
-            this.btnCreateJson.AllowDrop = true;
-            this.btnCreateJson.Location = new System.Drawing.Point(1003, 19);
-            this.btnCreateJson.Name = "btnCreateJson";
-            this.btnCreateJson.Size = new System.Drawing.Size(129, 23);
-            this.btnCreateJson.TabIndex = 12;
-            this.btnCreateJson.Text = "Create Json";
-            this.btnCreateJson.UseVisualStyleBackColor = true;
-            this.btnCreateJson.Click += new System.EventHandler(this.btnCreateJson_Click);
-            // 
-            // btnAccessToken
-            // 
-            this.btnAccessToken.AllowDrop = true;
-            this.btnAccessToken.Location = new System.Drawing.Point(15, 48);
-            this.btnAccessToken.Name = "btnAccessToken";
-            this.btnAccessToken.Size = new System.Drawing.Size(129, 23);
-            this.btnAccessToken.TabIndex = 13;
-            this.btnAccessToken.Text = "Token Mercado Libre";
-            this.btnAccessToken.UseVisualStyleBackColor = true;
-            this.btnAccessToken.Click += new System.EventHandler(this.btnAccessToken_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.AllowDrop = true;
-            this.btnLogin.Location = new System.Drawing.Point(15, 19);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(129, 23);
-            this.btnLogin.TabIndex = 14;
-            this.btnLogin.Text = "Login Mercado Libre";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(12, 104);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 18;
@@ -121,7 +75,7 @@
             // lstSubcategorias2
             // 
             this.lstSubcategorias2.FormattingEnabled = true;
-            this.lstSubcategorias2.Location = new System.Drawing.Point(472, 123);
+            this.lstSubcategorias2.Location = new System.Drawing.Point(472, 28);
             this.lstSubcategorias2.Name = "lstSubcategorias2";
             this.lstSubcategorias2.Size = new System.Drawing.Size(223, 134);
             this.lstSubcategorias2.TabIndex = 16;
@@ -130,7 +84,7 @@
             // lstSubcategorias3
             // 
             this.lstSubcategorias3.FormattingEnabled = true;
-            this.lstSubcategorias3.Location = new System.Drawing.Point(703, 123);
+            this.lstSubcategorias3.Location = new System.Drawing.Point(703, 28);
             this.lstSubcategorias3.Name = "lstSubcategorias3";
             this.lstSubcategorias3.Size = new System.Drawing.Size(223, 134);
             this.lstSubcategorias3.TabIndex = 16;
@@ -139,23 +93,11 @@
             // lstSubcategorias4
             // 
             this.lstSubcategorias4.FormattingEnabled = true;
-            this.lstSubcategorias4.Location = new System.Drawing.Point(934, 123);
+            this.lstSubcategorias4.Location = new System.Drawing.Point(934, 28);
             this.lstSubcategorias4.Name = "lstSubcategorias4";
             this.lstSubcategorias4.Size = new System.Drawing.Size(219, 134);
             this.lstSubcategorias4.TabIndex = 16;
             this.lstSubcategorias4.DoubleClick += new System.EventHandler(this.lstSubcategorias4_DoubleClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnLogin);
-            this.groupBox1.Controls.Add(this.btnAccessToken);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.btnCreateJson);
-            this.groupBox1.Location = new System.Drawing.Point(10, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1141, 93);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
             // 
             // btnContinuar
             // 
@@ -177,7 +119,7 @@
             this.groupBox3.Controls.Add(this.txtParametros);
             this.groupBox3.Controls.Add(this.btnContinuar);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBox3.Location = new System.Drawing.Point(10, 275);
+            this.groupBox3.Location = new System.Drawing.Point(10, 180);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(234, 320);
             this.groupBox3.TabIndex = 22;
@@ -232,7 +174,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(260, 272);
+            this.label3.Location = new System.Drawing.Point(260, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 13);
             this.label3.TabIndex = 18;
@@ -242,9 +184,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 608);
+            this.ClientSize = new System.Drawing.Size(1167, 514);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstSubcategorias4);
@@ -255,8 +196,6 @@
             this.Name = "frmPublicar";
             this.Text = "Publicar productos Mercado Libre";
             this.Load += new System.EventHandler(this.frmPublicar_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -268,15 +207,10 @@
 
         private System.Windows.Forms.ListBox lstSubcategorias1;
         private System.Windows.Forms.ListBox lstCategoriasRopa;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnCreateJson;
-        private System.Windows.Forms.Button btnAccessToken;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstSubcategorias2;
         private System.Windows.Forms.ListBox lstSubcategorias3;
         private System.Windows.Forms.ListBox lstSubcategorias4;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnContinuar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnBuscar;

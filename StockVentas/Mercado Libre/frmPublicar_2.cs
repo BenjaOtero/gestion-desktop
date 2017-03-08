@@ -69,7 +69,8 @@ namespace StockVentas.Mercado_Libre
         {
             string json = CreateJsonCopia();
             meli.PostAsync("/items/" +  json);
-            var p = new HttpParams().Add("access_token", meli.Credentials.AccessToken);
+            string access_token = BL.MercadoLibreBLL.GetAccessToken();
+            var p = new HttpParams().Add("access_token", access_token);
             meli.PostAsync("items/", p, publicarVariacion);
          //   Publicar(json);
 

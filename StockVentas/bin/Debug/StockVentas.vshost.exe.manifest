@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wTa+GHYgtFjqmnBMaZBdGmoMGtp4CUOxvP0G9QcNxtk=</dsig:DigestValue>
+        <dsig:DigestValue>YwfbYMV5RA+3eQXhPt/sxowoOupKogpZ1qA4FLJG2aA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5srp5Gl+Lg530kqGwZVRj9uN1Ws/1702bZKBZGiqaU8=</dsig:DigestValue>
+        <dsig:DigestValue>+CnejZoGg/Q4T2e7HVGtSTxDu+7PRKaguSCIoOnfk/Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -187,14 +187,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1059728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StockVentas.exe" size="1058192">
       <assemblyIdentity name="StockVentas" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HAgom6mAVuYJz6gYBkHch28WOhRLc5BnId2qYfDMCVs=</dsig:DigestValue>
+        <dsig:DigestValue>IQjziUFoWiO/TVgx8QR5aiXp1hxXJ+vFAHegRR7onsE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -55,21 +55,10 @@ namespace StockVentas.Mercado_Libre
             GetAccessToken();
         }
 
-
         async void GetAccessToken()
         {
             meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
             await meli.AuthorizeAsync(textBox1.Text, "https://trendsistemas.com/ml_response.php");
-            access = meli.Credentials.AccessToken;
-            MessageBox.Show(access);
-        }
-
-        async void GetAccessTokenCopia()
-        {
-            meli.Credentials = new MercadoLibre.SDK.MeliCredentials(MercadoLibre.SDK.Meta.MeliSite.Argentina, 577247158873150, "lTGAzLn0QBkr7yrQWPc4yb88sPwnVksS");
-            await meli.AuthorizeAsync(textBox1.Text, "https://trendsistemas.com/ml_response.php");
-            access = meli.Credentials.AccessToken;
-            MessageBox.Show(access);
         }
 
         void RefreshToken()
